@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DBFF01F-25A8-481C-A49A-40A2590AF7CD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HRIS</RootNamespace>
+    <AssemblyName>HRIS</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print Forms\Print_Masterlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print Forms\Print_Masterlist.Designer.cs">
+      <DependentUpon>Print_Masterlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC_Lists\UC_Birthday.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Lists\UC_Birthday.Designer.cs">
+      <DependentUpon>UC_Birthday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Lists\UC_EmpStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Lists\UC_EmpStatus.Designer.cs">
+      <DependentUpon>UC_EmpStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Lists\UC_Inactive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Lists\UC_Inactive.Designer.cs">
+      <DependentUpon>UC_Inactive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Lists\UC_Masterlist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Lists\UC_Masterlist.Designer.cs">
+      <DependentUpon>UC_Masterlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Memo\UC_InterMemo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Memo\UC_InterMemo.Designer.cs">
+      <DependentUpon>UC_InterMemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Memo\UC_Violation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Memo\UC_Violation.Designer.cs">
+      <DependentUpon>UC_Violation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\Form_AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\Form_AddEmployee.Designer.cs">
+      <DependentUpon>Form_AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\Form_Dependent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\Form_Dependent.Designer.cs">
+      <DependentUpon>Form_Dependent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\Form_RemoveEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\Form_RemoveEmployee.Designer.cs">
+      <DependentUpon>Form_RemoveEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\Form_Training.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\Form_Training.Designer.cs">
+      <DependentUpon>Form_Training.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Education.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Education.Designer.cs">
+      <DependentUpon>UC_Education.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Employee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Employee.Designer.cs">
+      <DependentUpon>UC_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Family.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Family.Designer.cs">
+      <DependentUpon>UC_Family.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Medical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Medical.Designer.cs">
+      <DependentUpon>UC_Medical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Overview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Overview.Designer.cs">
+      <DependentUpon>UC_Overview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Performance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Performance.Designer.cs">
+      <DependentUpon>UC_Performance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Training.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control Employee\UC_Training.Designer.cs">
+      <DependentUpon>UC_Training.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control\UC_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control\UC_Dashboard.Designer.cs">
+      <DependentUpon>UC_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control\UC_Employee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control\UC_Employee.Designer.cs">
+      <DependentUpon>UC_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Control\UC_MaintDepartment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control\UC_MaintDepartment.Designer.cs">
+      <DependentUpon>UC_MaintDepartment.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print Forms\Print_Masterlist.resx">
+      <DependentUpon>Print_Masterlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UC_Lists\UC_Birthday.resx">
+      <DependentUpon>UC_Birthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Lists\UC_EmpStatus.resx">
+      <DependentUpon>UC_EmpStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Lists\UC_Inactive.resx">
+      <DependentUpon>UC_Inactive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Lists\UC_Masterlist.resx">
+      <DependentUpon>UC_Masterlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Memo\UC_InterMemo.resx">
+      <DependentUpon>UC_InterMemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Memo\UC_Violation.resx">
+      <DependentUpon>UC_Violation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\Form_AddEmployee.resx">
+      <DependentUpon>Form_AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\Form_Dependent.resx">
+      <DependentUpon>Form_Dependent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\Form_RemoveEmployee.resx">
+      <DependentUpon>Form_RemoveEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\Form_Training.resx">
+      <DependentUpon>Form_Training.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\UC_Education.resx">
+      <DependentUpon>UC_Education.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\UC_Employee.resx">
+      <DependentUpon>UC_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\UC_Family.resx">
+      <DependentUpon>UC_Family.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\UC_Medical.resx">
+      <DependentUpon>UC_Medical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\UC_Overview.resx">
+      <DependentUpon>UC_Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\UC_Performance.resx">
+      <DependentUpon>UC_Performance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control Employee\UC_Training.resx">
+      <DependentUpon>UC_Training.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control\UC_Dashboard.resx">
+      <DependentUpon>UC_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control\UC_Employee.resx">
+      <DependentUpon>UC_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Control\UC_MaintDepartment.resx">
+      <DependentUpon>UC_MaintDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Access.Dao">
+      <Guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
