@@ -83,13 +83,18 @@ namespace HRIS.UC_Lists
                     cmd.Connection = myconn;
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Record Updated Successfully. Check Employee Module.");
+                    myconn.Close();
+                    deletedb();
+                    
                     this.Close();
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    myconn.Close();
                 }
-                myconn.Close();
+                
             }
         }
 
@@ -101,6 +106,29 @@ namespace HRIS.UC_Lists
             }
             else
                 date_contract.Enabled = true;
+        }
+
+        private void deletedb()
+        {
+            try
+            {
+                myconn.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"DELETE from List_InactiveEmp where SysEmp_ID=@id";
+                cmd.Parameters.AddWithValue("@id", empsystemid);
+                cmd.Connection = myconn;
+                cmd.ExecuteNonQuery();
+                
+                myconn.Close();
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                myconn.Close();
+            }
         }
     }
 }
