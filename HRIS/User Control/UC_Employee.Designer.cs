@@ -41,15 +41,16 @@
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.dg_emp = new System.Windows.Forms.DataGridView();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_emp)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_employee
             // 
-            this.panel_employee.Location = new System.Drawing.Point(268, 40);
+            this.panel_employee.Location = new System.Drawing.Point(235, 40);
             this.panel_employee.Name = "panel_employee";
-            this.panel_employee.Size = new System.Drawing.Size(971, 589);
+            this.panel_employee.Size = new System.Drawing.Size(861, 589);
             this.panel_employee.TabIndex = 2;
             // 
             // menuStrip1
@@ -65,9 +66,9 @@
             this.trainingAndDevelopmentToolStripMenuItem,
             this.medicalHistoryToolStripMenuItem,
             this.performanceToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(268, 13);
+            this.menuStrip1.Location = new System.Drawing.Point(235, 13);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,7 +134,7 @@
             // 
             this.btn_new.Location = new System.Drawing.Point(4, 604);
             this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(75, 23);
+            this.btn_new.Size = new System.Drawing.Size(75, 36);
             this.btn_new.TabIndex = 5;
             this.btn_new.Text = "NEW";
             this.btn_new.UseVisualStyleBackColor = true;
@@ -141,9 +142,9 @@
             // 
             // btn_remove
             // 
-            this.btn_remove.Location = new System.Drawing.Point(187, 606);
+            this.btn_remove.Location = new System.Drawing.Point(154, 604);
             this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(75, 23);
+            this.btn_remove.Size = new System.Drawing.Size(75, 36);
             this.btn_remove.TabIndex = 6;
             this.btn_remove.Text = "REMOVE";
             this.btn_remove.UseVisualStyleBackColor = true;
@@ -163,14 +164,26 @@
             this.dg_emp.RowHeadersVisible = false;
             this.dg_emp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_emp.ShowEditingIcon = false;
-            this.dg_emp.Size = new System.Drawing.Size(258, 558);
+            this.dg_emp.Size = new System.Drawing.Size(225, 558);
             this.dg_emp.TabIndex = 7;
             this.dg_emp.SelectionChanged += new System.EventHandler(this.dg_emp_SelectionChanged);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackgroundImage = global::HRIS.Properties.Resources.refresh;
+            this.btn_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Refresh.Location = new System.Drawing.Point(95, 604);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(40, 36);
+            this.btn_Refresh.TabIndex = 8;
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // UC_Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.dg_emp);
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_new);
@@ -202,5 +215,6 @@
         private System.Windows.Forms.ToolStripMenuItem performanceToolStripMenuItem;
         public System.Windows.Forms.TextBox tb_searchemp;
         public System.Windows.Forms.DataGridView dg_emp;
+        private System.Windows.Forms.Button btn_Refresh;
     }
 }

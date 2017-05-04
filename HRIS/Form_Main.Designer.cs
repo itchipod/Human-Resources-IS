@@ -35,6 +35,8 @@
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.performanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memorandumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.violationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listOfReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,7 @@
             this.birthdaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dependentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.memoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.violationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backToDashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             this.employeeToolStripMenuItem,
             this.performanceAppraisalToolStripMenuItem,
             this.memorandumToolStripMenuItem,
-            this.listOfReportsToolStripMenuItem});
+            this.listOfReportsToolStripMenuItem,
+            this.backToDashboardToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1212, 24);
@@ -77,14 +79,14 @@
             // departmentToolStripMenuItem
             // 
             this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
-            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.departmentToolStripMenuItem.Text = "Department";
             this.departmentToolStripMenuItem.Click += new System.EventHandler(this.departmentToolStripMenuItem_Click);
             // 
             // positionToolStripMenuItem
             // 
             this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
-            this.positionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.positionToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.positionToolStripMenuItem.Text = "Position";
             // 
             // employeeToolStripMenuItem
@@ -110,6 +112,18 @@
             this.memorandumToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.memorandumToolStripMenuItem.Text = "Memos/Reports";
             this.memorandumToolStripMenuItem.Click += new System.EventHandler(this.memorandumToolStripMenuItem_Click);
+            // 
+            // memoToolStripMenuItem
+            // 
+            this.memoToolStripMenuItem.Name = "memoToolStripMenuItem";
+            this.memoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.memoToolStripMenuItem.Text = "Memo";
+            // 
+            // violationsToolStripMenuItem
+            // 
+            this.violationsToolStripMenuItem.Name = "violationsToolStripMenuItem";
+            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.violationsToolStripMenuItem.Text = "Violations";
             // 
             // listOfReportsToolStripMenuItem
             // 
@@ -180,17 +194,12 @@
             this.mainpanel.Size = new System.Drawing.Size(1187, 689);
             this.mainpanel.TabIndex = 1;
             // 
-            // memoToolStripMenuItem
+            // backToDashboardToolStripMenuItem
             // 
-            this.memoToolStripMenuItem.Name = "memoToolStripMenuItem";
-            this.memoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.memoToolStripMenuItem.Text = "Memo";
-            // 
-            // violationsToolStripMenuItem
-            // 
-            this.violationsToolStripMenuItem.Name = "violationsToolStripMenuItem";
-            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.violationsToolStripMenuItem.Text = "Violations";
+            this.backToDashboardToolStripMenuItem.Name = "backToDashboardToolStripMenuItem";
+            this.backToDashboardToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.backToDashboardToolStripMenuItem.Text = "Back to Dashboard";
+            this.backToDashboardToolStripMenuItem.Click += new System.EventHandler(this.backToDashboardToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
@@ -228,10 +237,11 @@
         private System.Windows.Forms.ToolStripMenuItem employmentStatusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allEmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dependentsToolStripMenuItem;
-        private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.ToolStripMenuItem inactiveEmployeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem violationsToolStripMenuItem;
+        public System.Windows.Forms.Panel mainpanel;
+        private System.Windows.Forms.ToolStripMenuItem backToDashboardToolStripMenuItem;
     }
 }
 

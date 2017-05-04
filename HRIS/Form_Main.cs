@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace HRIS
 {
-    public partial class Form_Main : Form
+    public partial class  Form_Main : Form
     {
         public Form_Main()
         {
@@ -19,7 +19,7 @@ namespace HRIS
 
        
 
-        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
+        public void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             User_Control.UC_Employee ue = new User_Control.UC_Employee();
             mainpanel.Controls.Clear();
@@ -100,6 +100,13 @@ namespace HRIS
         private void birthdaysToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UC_Lists.UC_Birthday uc = new UC_Lists.UC_Birthday();
+            mainpanel.Controls.Clear();
+            mainpanel.Controls.Add(uc);
+        }
+
+        private void backToDashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_Control.UC_Dashboard uc = new User_Control.UC_Dashboard();
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
         }

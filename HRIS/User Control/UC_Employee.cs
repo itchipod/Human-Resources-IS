@@ -254,5 +254,10 @@ namespace HRIS.User_Control
             else
                 Application.OpenForms[f.Name].Activate();
         }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            loademployees();
+        }
     }
 }

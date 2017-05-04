@@ -174,6 +174,15 @@ namespace HRIS.UC_Lists
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(cb_Column.Text+ " LIKE '%{0}%'",  tb_Value.Text);
             countRows();
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            //Form_Main fm = new Form_Main();
+            //User_Control.UC_Employee ue = new User_Control.UC_Employee();
+            //fm.mainpanel.Controls.Clear();
+            //fm.mainpanel.Controls.Add(ue);
+        }
     }
     
 }

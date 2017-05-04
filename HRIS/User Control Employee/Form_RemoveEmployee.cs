@@ -88,6 +88,8 @@ namespace HRIS.User_Control_Employee
             {
                 addtoinactive();
                 setstatus();
+                Form_Main m = new Form_Main();
+                m.employeeToolStripMenuItem_Click(this, new EventArgs());
             }
             else
                 MessageBox.Show("Must Provide Reason for Removing");
@@ -116,9 +118,9 @@ namespace HRIS.User_Control_Employee
                     cmd.Parameters.AddWithValue("@sysid", empsystemid);
                     cmd.Connection = myconn;
                     cmd.ExecuteNonQuery();
+
                     
-                    User_Control.UC_Employee ue = new User_Control.UC_Employee();
-                    ue.loademployees();
+                    //ue.loademployees();
                     this.Close();
 
                 }

@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tb_Value = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cb_Column = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbl_total = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_numemployee = new System.Windows.Forms.Button();
@@ -38,14 +43,9 @@
             this.btn_print = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cb_Column = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tb_Value = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -65,6 +65,54 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EMPLOYEE MASTERLIST";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tb_Value);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cb_Column);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(269, 11);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(375, 66);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search";
+            // 
+            // tb_Value
+            // 
+            this.tb_Value.Location = new System.Drawing.Point(178, 33);
+            this.tb_Value.Name = "tb_Value";
+            this.tb_Value.Size = new System.Drawing.Size(168, 20);
+            this.tb_Value.TabIndex = 12;
+            this.tb_Value.TextChanged += new System.EventHandler(this.tb_Value_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(175, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Value:";
+            // 
+            // cb_Column
+            // 
+            this.cb_Column.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Column.FormattingEnabled = true;
+            this.cb_Column.Location = new System.Drawing.Point(9, 32);
+            this.cb_Column.Name = "cb_Column";
+            this.cb_Column.Size = new System.Drawing.Size(135, 21);
+            this.cb_Column.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Column:";
             // 
             // lbl_total
             // 
@@ -143,61 +191,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(916, 491);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tb_Value);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.cb_Column);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(269, 11);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(375, 66);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Search";
-            // 
-            // cb_Column
-            // 
-            this.cb_Column.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Column.FormattingEnabled = true;
-            this.cb_Column.Location = new System.Drawing.Point(9, 32);
-            this.cb_Column.Name = "cb_Column";
-            this.cb_Column.Size = new System.Drawing.Size(135, 21);
-            this.cb_Column.TabIndex = 10;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Column:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(175, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Value:";
-            // 
-            // tb_Value
-            // 
-            this.tb_Value.Location = new System.Drawing.Point(178, 33);
-            this.tb_Value.Name = "tb_Value";
-            this.tb_Value.Size = new System.Drawing.Size(168, 20);
-            this.tb_Value.TabIndex = 12;
-            this.tb_Value.TextChanged += new System.EventHandler(this.tb_Value_TextChanged);
             // 
             // UC_Masterlist
             // 
@@ -209,9 +210,9 @@
             this.Load += new System.EventHandler(this.UC_Masterlist_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
