@@ -50,7 +50,7 @@ namespace HRIS.UC_Lists
                         dataGridView1.Columns[1].HeaderText = "Name";
                         dataGridView1.Columns[2].HeaderText = "Birthday";
                         month = dataGridView1.Columns[2].ToString();
-
+                        dataGridView1.Columns["Birthdate"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
 
                     }
