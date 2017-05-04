@@ -117,5 +117,42 @@ namespace HRIS.UC_Lists
                 myconn.Close();
             
         }
+
+        private void btn_Restore_Click(object sender, EventArgs e)
+        {
+            updatetempid();
+            UC_Lists.Form_Restore f = new UC_Lists.Form_Restore();
+            if (Application.OpenForms[f.Name] == null)
+            {
+                f.Show();
+            }
+            else
+                Application.OpenForms[f.Name].Activate();
+            
+        }
+
+        public void updatetempid()
+        {
+            
+            
+            try
+            {
+                myconn.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"UPDATE Temp_EmpID set TempEmpID=@empid where ID=1";
+                cmd.Parameters.AddWithValue("@empid", selectedempid);
+                //cmd.Parameters.AddWithValue("@id", 1);
+                cmd.Connection = myconn;
+                cmd.ExecuteNonQuery();
+                myconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                myconn.Close();
+            }
+        }
+
     }
 }
