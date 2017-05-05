@@ -16,7 +16,7 @@ namespace HRIS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Main());
+            Application.Run(new UC_UserLogin.Form_Login());
         }
     }
 }

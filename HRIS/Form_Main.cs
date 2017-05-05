@@ -62,6 +62,7 @@ namespace HRIS
             listOfReportsToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
             employeeToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
             performanceAppraisalToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
+            usersToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
         }
 
         private void performanceAppraisalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +110,15 @@ namespace HRIS
             User_Control.UC_Dashboard uc = new User_Control.UC_Dashboard();
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_UserLogin.UC_Users u = new UC_UserLogin.UC_Users();
+            mainpanel.Controls.Clear();
+            mainpanel.Controls.Add(u);
+            removecolors();
+            usersToolStripMenuItem.BackColor = System.Drawing.Color.Cyan;
         }
     }
 }

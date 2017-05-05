@@ -142,6 +142,19 @@
     <Compile Include="UC_Memo\UC_Violation.Designer.cs">
       <DependentUpon>UC_Violation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_UserLogin\CheckUser.cs" />
+    <Compile Include="UC_UserLogin\Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC_UserLogin\Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_UserLogin\UC_Users.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_UserLogin\UC_Users.Designer.cs">
+      <DependentUpon>UC_Users.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Control Employee\Form_AddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +275,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Memo\UC_Violation.resx">
       <DependentUpon>UC_Violation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_UserLogin\Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_UserLogin\UC_Users.resx">
+      <DependentUpon>UC_Users.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Control Employee\Form_AddEmployee.resx">
       <DependentUpon>Form_AddEmployee.cs</DependentUpon>

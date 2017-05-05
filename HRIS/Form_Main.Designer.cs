@@ -45,8 +45,9 @@
             this.medicalReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.birthdaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dependentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainpanel = new System.Windows.Forms.Panel();
             this.backToDashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainpanel = new System.Windows.Forms.Panel();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,12 +55,13 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backToDashboardToolStripMenuItem,
             this.maintenanceToolStripMenuItem,
             this.employeeToolStripMenuItem,
             this.performanceAppraisalToolStripMenuItem,
             this.memorandumToolStripMenuItem,
             this.listOfReportsToolStripMenuItem,
-            this.backToDashboardToolStripMenuItem});
+            this.usersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1212, 24);
@@ -79,14 +81,14 @@
             // departmentToolStripMenuItem
             // 
             this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
-            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.departmentToolStripMenuItem.Text = "Department";
             this.departmentToolStripMenuItem.Click += new System.EventHandler(this.departmentToolStripMenuItem_Click);
             // 
             // positionToolStripMenuItem
             // 
             this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
-            this.positionToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.positionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.positionToolStripMenuItem.Text = "Position";
             // 
             // employeeToolStripMenuItem
@@ -187,6 +189,13 @@
             this.dependentsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.dependentsToolStripMenuItem.Text = "Dependents";
             // 
+            // backToDashboardToolStripMenuItem
+            // 
+            this.backToDashboardToolStripMenuItem.Name = "backToDashboardToolStripMenuItem";
+            this.backToDashboardToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.backToDashboardToolStripMenuItem.Text = "Home";
+            this.backToDashboardToolStripMenuItem.Click += new System.EventHandler(this.backToDashboardToolStripMenuItem_Click);
+            // 
             // mainpanel
             // 
             this.mainpanel.Location = new System.Drawing.Point(13, 28);
@@ -194,12 +203,12 @@
             this.mainpanel.Size = new System.Drawing.Size(1187, 689);
             this.mainpanel.TabIndex = 1;
             // 
-            // backToDashboardToolStripMenuItem
+            // usersToolStripMenuItem
             // 
-            this.backToDashboardToolStripMenuItem.Name = "backToDashboardToolStripMenuItem";
-            this.backToDashboardToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
-            this.backToDashboardToolStripMenuItem.Text = "Back to Dashboard";
-            this.backToDashboardToolStripMenuItem.Click += new System.EventHandler(this.backToDashboardToolStripMenuItem_Click);
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
@@ -242,6 +251,7 @@
         private System.Windows.Forms.ToolStripMenuItem violationsToolStripMenuItem;
         public System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.ToolStripMenuItem backToDashboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
     }
 }
 
