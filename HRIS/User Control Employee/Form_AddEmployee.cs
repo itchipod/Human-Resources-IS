@@ -74,14 +74,17 @@ namespace HRIS.User_Control_Employee
                     MessageBox.Show("Record Added Successfully");
                     User_Control.UC_Employee ue = new User_Control.UC_Employee();
                     ue.loademployees();
+                    myconn.Close();
+                    audittrail("Added Employee No. " + tb_id.Text);
                     this.Close();
                     
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    myconn.Close();
                 }
-                myconn.Close();
+               
             }
         }
 
@@ -109,6 +112,12 @@ namespace HRIS.User_Control_Employee
 
                 throw;
             }
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }

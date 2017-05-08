@@ -40,7 +40,7 @@ namespace HRIS.User_Control_Employee
                 cmd.Parameters.AddWithValue("@age", tb_age.Text);
                 cmd.Parameters.AddWithValue("@bir", date_birth.Value.ToShortDateString());
                 cmd.Parameters.AddWithValue("@empid", empsystemid);
-                
+                audittrail("Added Dependent " + tb_depname.Text);
                 cmd.Connection = myconn;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Record Added Successfully");
@@ -88,6 +88,12 @@ namespace HRIS.User_Control_Employee
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }

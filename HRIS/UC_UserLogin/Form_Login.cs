@@ -12,10 +12,13 @@ namespace HRIS.UC_UserLogin
 {
     public partial class Form_Login : Form
     {
+        private OleDbConnection myconn;
         string connstring = System.Configuration.ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+        string type;
         public Form_Login()
         {
             InitializeComponent();
+            myconn = new OleDbConnection(connstring);
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)
@@ -38,7 +41,7 @@ namespace HRIS.UC_UserLogin
 
         private void matchData()
         {
-            string sqlstring = "SELECT Username, User_Password from Users_Log where Username LIKE '" + tb_username.Text + "' AND User_Password LIKE '" + tb_password.Text + "'";
+            string sqlstring = "SELECT * from Users_Log where Username LIKE '" + tb_username.Text + "' AND User_Password LIKE '" + tb_password.Text + "'";
             using (OleDbConnection conn = new OleDbConnection(connstring))
             {
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
@@ -48,6 +51,8 @@ namespace HRIS.UC_UserLogin
                     adapter.Fill(ds);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        type = ds.Tables[0].Rows[0]["User_Type"].ToString();
+                        User_Logged();
                         this.Hide();
                         Form_Main f = new Form_Main();
                         f.Show();
@@ -68,6 +73,20 @@ namespace HRIS.UC_UserLogin
             {
                 matchData();
             }
+        }
+
+        private void User_Logged()
+        {
+
+            myconn.Open();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE Users_UserLogged set username=@name, user_type=@type where ID=1";
+            cmd.Parameters.AddWithValue("@name", tb_username.Text);
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.Connection = myconn;
+            cmd.ExecuteNonQuery();
+            myconn.Close();
         }
     }
 }

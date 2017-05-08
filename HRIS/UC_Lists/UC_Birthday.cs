@@ -44,13 +44,16 @@ namespace HRIS.UC_Lists
                     {
                         DataSet ds = new DataSet();
                         adapter.Fill(ds);
+                        
                         dataGridView1.DataSource = ds.Tables[0];
-
+                        dataGridView1.Columns[2].DefaultCellStyle.Format = "MM/dd";
+                        dataGridView1.Columns[2].ValueType = typeof(DateTime);
+                        
                         dataGridView1.Columns[0].HeaderText = "ID";
                         dataGridView1.Columns[1].HeaderText = "Name";
                         dataGridView1.Columns[2].HeaderText = "Birthday";
-                        month = dataGridView1.Columns[2].ToString();
-                        dataGridView1.Columns["Birthdate"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        //month = dataGridView1.Columns[2].ToString();
+                        this.dataGridView1.Sort(this.dataGridView1.Columns[2], ListSortDirection.Ascending);
 
 
                     }
@@ -71,6 +74,30 @@ namespace HRIS.UC_Lists
         private void cb_birth_SelectedIndexChanged(object sender, EventArgs e)
         {
             //(dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            copyAlltoClipboard();
+            Microsoft.Office.Interop.Excel.Application xlexcel;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Microsoft.Office.Interop.Excel.Application();
+            xlexcel.Visible = true;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        private void copyAlltoClipboard()
+        {
+            dataGridView1.SelectAll();
+            DataObject dataObj = dataGridView1.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
         }
     }
 }

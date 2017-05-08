@@ -86,6 +86,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audit Trail\Add_AuditTrail.cs" />
+    <Compile Include="Audit Trail\UC_Audit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Audit Trail\UC_Audit.Designer.cs">
+      <DependentUpon>UC_Audit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +246,9 @@
     <Compile Include="User Control\UC_MaintDepartment.Designer.cs">
       <DependentUpon>UC_MaintDepartment.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Audit Trail\UC_Audit.resx">
+      <DependentUpon>UC_Audit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>

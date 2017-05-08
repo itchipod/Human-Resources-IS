@@ -122,6 +122,7 @@ namespace HRIS.User_Control_Employee
                     cmd.ExecuteNonQuery();
                     myconn.Close();
                     loademployer();
+                    audittrail("Added Employment History for "+empsystemid);
                     MessageBox.Show("Record added successfully");
                 }
                 catch (Exception ex)
@@ -150,6 +151,7 @@ namespace HRIS.User_Control_Employee
                     cmd.ExecuteNonQuery();
                     myconn.Close();
                     loademployer();
+                    audittrail("Deleted Employment History for " + empsystemid);
                     MessageBox.Show("Record deleted successfully");
                 }
                 catch (Exception ex)
@@ -158,6 +160,12 @@ namespace HRIS.User_Control_Employee
                     myconn.Close();
                 }
             }
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }

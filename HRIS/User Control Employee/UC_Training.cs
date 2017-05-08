@@ -119,6 +119,7 @@ namespace HRIS.User_Control_Employee
                     cmd.ExecuteNonQuery();
                     myconn.Close();
                     loadtraining();
+                    audittrail("Training Added");
                     MessageBox.Show("Record added successfully");
                 }
                 catch (Exception ex)
@@ -147,6 +148,7 @@ namespace HRIS.User_Control_Employee
                     cmd.ExecuteNonQuery();
                     myconn.Close();
                     loadtraining();
+                    audittrail("Training deleted");
                     MessageBox.Show("Record deleted successfully");
                 }
                 catch (Exception ex)
@@ -155,6 +157,12 @@ namespace HRIS.User_Control_Employee
                     myconn.Close();
                 }
             }
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }

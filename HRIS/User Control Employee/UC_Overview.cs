@@ -153,6 +153,7 @@ namespace HRIS.User_Control_Employee
                     myconn.Close();
                     setTextboxes();
                     MessageBox.Show("Record updated successfully");
+                    audittrail("Updated Employee Information No. " + tb_empid.Text);
                 }
                 catch (Exception ex)
                 {
@@ -258,6 +259,12 @@ namespace HRIS.User_Control_Employee
         {
             if (cb_empstatus.SelectedIndex == 1)
                 date_contract.Enabled = false;
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }

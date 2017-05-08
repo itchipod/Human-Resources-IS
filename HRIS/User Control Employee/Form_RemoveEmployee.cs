@@ -88,6 +88,7 @@ namespace HRIS.User_Control_Employee
             {
                 addtoinactive();
                 setstatus();
+                audittrail("Removed Employee No. " + tb_id.Text + ", moved to Inactive");
                 Form_Main m = new Form_Main();
                 m.employeeToolStripMenuItem_Click(this, new EventArgs());
             }
@@ -155,6 +156,12 @@ namespace HRIS.User_Control_Employee
                 MessageBox.Show(ex.Message);
             }
             myconn.Close();
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }

@@ -178,6 +178,7 @@ namespace HRIS.User_Control_Employee
                     myconn.Close();
                 }
             }
+            audittrail("Updated Spouse Information for " + empsystemid);
 
         }
 
@@ -230,7 +231,7 @@ namespace HRIS.User_Control_Employee
                     cmd.Connection = myconn;
                     cmd.ExecuteNonQuery();
                     myconn.Close();
-                    
+                    audittrail("Deleted Dependent from Employee No." + empsystemid);
                     MessageBox.Show("Record deleted successfully");
                 }
                 catch (Exception ex)
@@ -297,6 +298,12 @@ namespace HRIS.User_Control_Employee
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             getdependents();
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }

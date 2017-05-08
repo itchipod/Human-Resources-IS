@@ -165,7 +165,7 @@ namespace HRIS.User_Control
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message +" Select a row");
                     myconn.Close();
                 }
             }

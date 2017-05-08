@@ -291,6 +291,7 @@ namespace HRIS.User_Control_Employee
                     cmd.Connection = myconn;
                     cmd.ExecuteNonQuery();
                     myconn.Close();
+                    audittrail("Added Education Information");
                     cb_level_SelectedIndexChanged(this, new EventArgs());
                     MessageBox.Show("Record added successfully");
                 }
@@ -328,6 +329,12 @@ namespace HRIS.User_Control_Employee
         private void btn_viewdiploma_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(imagepath);
+        }
+
+        private void audittrail(string _activity)
+        {
+            Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
+            a.add_log(_activity);
         }
     }
 }
