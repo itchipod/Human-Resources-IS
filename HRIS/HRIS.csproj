@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -137,6 +137,12 @@
     <Compile Include="UC_Lists\UC_Masterlist.Designer.cs">
       <DependentUpon>UC_Masterlist.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Lists\UC_MedicalRecords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Lists\UC_MedicalRecords.Designer.cs">
+      <DependentUpon>UC_MedicalRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Memo\UC_InterMemo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +252,12 @@
     <Compile Include="User Control\UC_MaintDepartment.Designer.cs">
       <DependentUpon>UC_MaintDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Control\UC_PerformanceAppraisalPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Control\UC_PerformanceAppraisalPrint.Designer.cs">
+      <DependentUpon>UC_PerformanceAppraisalPrint.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Audit Trail\UC_Audit.resx">
       <DependentUpon>UC_Audit.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Lists\UC_Masterlist.resx">
       <DependentUpon>UC_Masterlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Lists\UC_MedicalRecords.resx">
+      <DependentUpon>UC_MedicalRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Memo\UC_InterMemo.resx">
       <DependentUpon>UC_InterMemo.cs</DependentUpon>
@@ -334,6 +349,9 @@
     <EmbeddedResource Include="User Control\UC_MaintDepartment.resx">
       <DependentUpon>UC_MaintDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Control\UC_PerformanceAppraisalPrint.resx">
+      <DependentUpon>UC_PerformanceAppraisalPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -377,6 +395,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
@@ -402,6 +429,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\refresh1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

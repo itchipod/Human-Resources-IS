@@ -147,12 +147,12 @@
             this.dg_sched.AllowUserToDeleteRows = false;
             this.dg_sched.AllowUserToResizeRows = false;
             this.dg_sched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_sched.Location = new System.Drawing.Point(6, 18);
+            this.dg_sched.Location = new System.Drawing.Point(6, 29);
             this.dg_sched.Name = "dg_sched";
             this.dg_sched.ReadOnly = true;
             this.dg_sched.RowHeadersVisible = false;
             this.dg_sched.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_sched.Size = new System.Drawing.Size(479, 548);
+            this.dg_sched.Size = new System.Drawing.Size(479, 537);
             this.dg_sched.TabIndex = 0;
             this.dg_sched.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_sched_CellClick);
             // 

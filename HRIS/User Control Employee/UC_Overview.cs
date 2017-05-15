@@ -108,6 +108,7 @@ namespace HRIS.User_Control_Employee
 
         private void btn_update_Click(object sender, EventArgs e)
         {
+
             DialogResult yesno = MessageBox.Show("Update records to database?", "ADD", MessageBoxButtons.YesNoCancel);
             if (yesno == DialogResult.Yes)
             {
@@ -266,5 +267,7 @@ namespace HRIS.User_Control_Employee
             Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
             a.add_log(_activity);
         }
+
+
     }
 }

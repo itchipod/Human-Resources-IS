@@ -151,5 +151,20 @@ namespace HRIS
                 }
             }
         }
+
+        private void printPerformanceAppraisalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_Control.UC_PerformanceAppraisalPrint uc = new User_Control.UC_PerformanceAppraisalPrint();
+            mainpanel.Controls.Clear();
+            mainpanel.Controls.Add(uc);
+            
+        }
+
+        private void medicalReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_Lists.UC_MedicalRecords uc = new UC_Lists.UC_MedicalRecords();
+            mainpanel.Controls.Clear();
+            mainpanel.Controls.Add(uc);
+        }
     }
 }
