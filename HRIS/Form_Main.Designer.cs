@@ -34,8 +34,6 @@
             this.departmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.positionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.performanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPerformanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memorandumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.violationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +48,8 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditTrailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.printPerformanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.performanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,22 +108,6 @@
             this.employeeToolStripMenuItem.Text = "Employee ";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
-            // performanceAppraisalToolStripMenuItem
-            // 
-            this.performanceAppraisalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.printPerformanceAppraisalToolStripMenuItem});
-            this.performanceAppraisalToolStripMenuItem.Name = "performanceAppraisalToolStripMenuItem";
-            this.performanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
-            this.performanceAppraisalToolStripMenuItem.Text = "Performance Appraisal";
-            this.performanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.performanceAppraisalToolStripMenuItem_Click);
-            // 
-            // printPerformanceAppraisalToolStripMenuItem
-            // 
-            this.printPerformanceAppraisalToolStripMenuItem.Name = "printPerformanceAppraisalToolStripMenuItem";
-            this.printPerformanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.printPerformanceAppraisalToolStripMenuItem.Text = "Print Performance Appraisal";
-            this.printPerformanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.printPerformanceAppraisalToolStripMenuItem_Click);
-            // 
             // memorandumToolStripMenuItem
             // 
             this.memorandumToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -132,18 +116,19 @@
             this.memorandumToolStripMenuItem.Name = "memorandumToolStripMenuItem";
             this.memorandumToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.memorandumToolStripMenuItem.Text = "Memos/Reports";
+            this.memorandumToolStripMenuItem.Visible = false;
             this.memorandumToolStripMenuItem.Click += new System.EventHandler(this.memorandumToolStripMenuItem_Click);
             // 
             // memoToolStripMenuItem
             // 
             this.memoToolStripMenuItem.Name = "memoToolStripMenuItem";
-            this.memoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.memoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.memoToolStripMenuItem.Text = "Memo";
             // 
             // violationsToolStripMenuItem
             // 
             this.violationsToolStripMenuItem.Name = "violationsToolStripMenuItem";
-            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.violationsToolStripMenuItem.Text = "Violations";
             // 
             // listOfReportsToolStripMenuItem
@@ -230,6 +215,23 @@
             this.mainpanel.Size = new System.Drawing.Size(1187, 689);
             this.mainpanel.TabIndex = 1;
             // 
+            // printPerformanceAppraisalToolStripMenuItem
+            // 
+            this.printPerformanceAppraisalToolStripMenuItem.Name = "printPerformanceAppraisalToolStripMenuItem";
+            this.printPerformanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.printPerformanceAppraisalToolStripMenuItem.Text = "Print Performance Appraisal";
+            this.printPerformanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.printPerformanceAppraisalToolStripMenuItem_Click);
+            // 
+            // performanceAppraisalToolStripMenuItem
+            // 
+            this.performanceAppraisalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.printPerformanceAppraisalToolStripMenuItem});
+            this.performanceAppraisalToolStripMenuItem.Name = "performanceAppraisalToolStripMenuItem";
+            this.performanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
+            this.performanceAppraisalToolStripMenuItem.Text = "Performance Appraisal";
+            this.performanceAppraisalToolStripMenuItem.Visible = false;
+            this.performanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.performanceAppraisalToolStripMenuItem_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +256,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem performanceAppraisalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memorandumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem;
@@ -273,6 +274,7 @@
         private System.Windows.Forms.ToolStripMenuItem backToDashboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditTrailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem performanceAppraisalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printPerformanceAppraisalToolStripMenuItem;
     }
 }

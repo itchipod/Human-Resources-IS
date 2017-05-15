@@ -21,6 +21,7 @@ namespace HRIS.Audit_Trail
         private void UC_Audit_Load(object sender, EventArgs e)
         {
             loaddb();
+            this.dataGridView1.Sort(this.dataGridView1.Columns[1], ListSortDirection.Descending);
         }
 
         private void loaddb()
@@ -52,7 +53,7 @@ namespace HRIS.Audit_Trail
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Date_Log = '{0}'", date_sort.Value);
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Date_Log >= '{0}'", date_sort.Value);
         }
     }
 }

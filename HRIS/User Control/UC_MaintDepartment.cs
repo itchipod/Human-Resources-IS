@@ -26,13 +26,14 @@ namespace HRIS.User_Control
         {
             loadsupervisor();
             loaddepartment();
+            //cb_dept.Sorted = true;
         }
 
         private void loaddepartment()
         {
             try
             {
-                string sqlstring = "SELECT * from Maint_Dept";
+                string sqlstring = "SELECT * from Maint_Dept where department <> 'ALL' ORDER BY department ASC";
                 using (OleDbConnection conn = new OleDbConnection(connstring))
                 {
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
@@ -43,6 +44,7 @@ namespace HRIS.User_Control
                         cb_dept.DisplayMember = "department";
                         cb_dept.ValueMember = "department";
                         cb_dept.DataSource = ds.Tables[0];
+                        
 
                     }
                 }

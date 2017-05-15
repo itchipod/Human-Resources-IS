@@ -25,6 +25,7 @@ namespace HRIS.UC_UserLogin
         private void UC_Users_Load(object sender, EventArgs e)
         {
             loaddb();
+            cb_type.SelectedIndex = 0;
         }
 
         private void loaddb()
