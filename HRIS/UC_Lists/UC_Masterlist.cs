@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Novacode;
+using System.Diagnostics;
 
 namespace HRIS.UC_Lists
 {
@@ -150,6 +152,8 @@ namespace HRIS.UC_Lists
 
         private void copyAlltoClipboard()
         {
+            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dataGridView1.MultiSelect = true;
             dataGridView1.SelectAll();
             DataObject dataObj = dataGridView1.GetClipboardContent();
             if (dataObj != null)
@@ -183,6 +187,66 @@ namespace HRIS.UC_Lists
             //fm.mainpanel.Controls.Clear();
             //fm.mainpanel.Controls.Add(ue);
         }
+
+        private void btn_numemployee_Click(object sender, EventArgs e)
+        {
+            string departmentName;
+
+            string[] numberperdep;
+            int count;
+            try
+            {
+                string sqlstring = "SELECT department from Maint_Dept where department <> 'ALL'";
+                using (OleDbConnection conn = new OleDbConnection(connstring))
+                {
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        numberperdep = new string[ds.Tables[0].Rows.Count];
+                        for(int i=0;i<ds.Tables[0].Rows.Count;i++)
+                        {
+
+                            departmentName = ds.Tables[0].Rows[i][0].ToString();
+                            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Emp_Dept LIKE '%{0}%'", departmentName);
+                            count = dataGridView1.Rows.Count;
+
+                            numberperdep[i] = departmentName + ": " + count.ToString();
+
+                        }
+
+                    }
+                }
+                
+                loadmasterlist();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            CreateSampleDocument(string.Join(" \n", numberperdep));
+        }
+
+        public void CreateSampleDocument(string count)
+        {
+            // Modify to suit your machine:
+            string fileName = @"C:\Users\Public\Documents\Employee Number per Department.docx";
+
+            // Create a document in memory:
+            var doc = DocX.Create(fileName);
+
+            // Insert a paragrpah:
+            doc.InsertParagraph(count);
+
+            // Save to the output directory:
+            doc.Save();
+
+            // Open in Word:
+            Process.Start("WINWORD.EXE", fileName);
+        }
+
+
     }
     
 }

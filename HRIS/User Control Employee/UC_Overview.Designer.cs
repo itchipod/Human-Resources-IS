@@ -96,7 +96,7 @@
             this.label32 = new System.Windows.Forms.Label();
             this.tb_sname = new System.Windows.Forms.TextBox();
             this.tb_empid = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPrintInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_id)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -727,20 +727,21 @@
             this.tb_empid.Size = new System.Drawing.Size(77, 20);
             this.tb_empid.TabIndex = 41;
             // 
-            // button1
+            // btnPrintInfo
             // 
-            this.button1.Location = new System.Drawing.Point(593, 561);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Print Info Sheet";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPrintInfo.Location = new System.Drawing.Point(593, 561);
+            this.btnPrintInfo.Name = "btnPrintInfo";
+            this.btnPrintInfo.Size = new System.Drawing.Size(98, 23);
+            this.btnPrintInfo.TabIndex = 42;
+            this.btnPrintInfo.Text = "Print Info Sheet";
+            this.btnPrintInfo.UseVisualStyleBackColor = true;
+            this.btnPrintInfo.Click += new System.EventHandler(this.btnPrintInfo_Click);
             // 
             // UC_Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPrintInfo);
             this.Controls.Add(this.tb_empid);
             this.Controls.Add(this.tb_sname);
             this.Controls.Add(this.label32);
@@ -843,6 +844,6 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox tb_sname;
         private System.Windows.Forms.TextBox tb_empid;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPrintInfo;
     }
 }

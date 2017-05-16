@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Novacode;
+using System.Diagnostics;
 
 namespace HRIS.User_Control_Employee
 {
@@ -136,7 +138,7 @@ namespace HRIS.User_Control_Employee
                     cmd.Parameters.AddWithValue("@citizenship", tb_citizenship.Text);
                     cmd.Parameters.AddWithValue("@religion", tb_religion.Text);
                     cmd.Parameters.AddWithValue("@empage", tb_age.Text);
-                    cmd.Parameters.AddWithValue("@birthdate", date_birth.Value.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@birthdate", date_birth.Value);
                     cmd.Parameters.AddWithValue("@telephone", tb_telephone.Text);
                     cmd.Parameters.AddWithValue("@cellphone", tb_cell.Text);
                     cmd.Parameters.AddWithValue("@email", tb_email.Text);
@@ -211,7 +213,7 @@ namespace HRIS.User_Control_Employee
         {
             try
             {
-                string sqlstring = "SELECT department from Maint_Dept";
+                string sqlstring = "SELECT department from Maint_Dept where department <> 'ALL'";
                 using (OleDbConnection conn = new OleDbConnection(connstring))
                 {
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
@@ -268,6 +270,30 @@ namespace HRIS.User_Control_Employee
             a.add_log(_activity);
         }
 
+        private void btnPrintInfo_Click(object sender, EventArgs e)
+        {
+            string fileName = @"C:\Users\Public\Documents\Info Sheet.docx";
 
+            // Create a document in memory:
+            var doc = DocX.Create(fileName);
+
+            // Insert a paragrpah:
+            doc.InsertParagraph("Employee ID: " +tb_empid.Text);
+            doc.InsertParagraph("\nEmployee Name: " + tb_fname.Text + " " +tb_mname.Text + " " + tb_lname.Text + " " + tb_sname.Text);
+            doc.InsertParagraph("\nEmployment Status: " + cb_empstatus.Text);
+            doc.InsertParagraph("\nDate Hired: " + date_hired.Text);
+            doc.InsertParagraph("\nDesignation: " + tb_position.Text);
+            doc.InsertParagraph("\nDepartment: " + tb_dept.Text);
+            doc.InsertParagraph("\nSupervisor: " + tb_supervisor.Text);
+            doc.InsertParagraph("\nCurrent Address: " + tb_address.Text);
+            doc.InsertParagraph("\nBirthday: " + date_birth.Text);
+            doc.InsertParagraph("\nAge: " + tb_age.Text);
+
+            // Save to the output directory:
+            doc.Save();
+
+            // Open in Word:
+            Process.Start("WINWORD.EXE", fileName);
+        }
     }
 }

@@ -40,7 +40,6 @@
             this.print_master = new System.Windows.Forms.Button();
             this.cb_dept = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_print = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox1.SuspendLayout();
@@ -57,7 +56,6 @@
             this.groupBox1.Controls.Add(this.print_master);
             this.groupBox1.Controls.Add(this.cb_dept);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btn_print);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
@@ -134,12 +132,13 @@
             // 
             // btn_numemployee
             // 
-            this.btn_numemployee.Location = new System.Drawing.Point(471, 580);
+            this.btn_numemployee.Location = new System.Drawing.Point(601, 580);
             this.btn_numemployee.Name = "btn_numemployee";
             this.btn_numemployee.Size = new System.Drawing.Size(191, 23);
             this.btn_numemployee.TabIndex = 5;
             this.btn_numemployee.Text = "PRINT NUMBER OF EMPLOYEES";
             this.btn_numemployee.UseVisualStyleBackColor = true;
+            this.btn_numemployee.Click += new System.EventHandler(this.btn_numemployee_Click);
             // 
             // print_master
             // 
@@ -147,7 +146,7 @@
             this.print_master.Name = "print_master";
             this.print_master.Size = new System.Drawing.Size(124, 23);
             this.print_master.TabIndex = 4;
-            this.print_master.Text = "PRINT MASTERLIST";
+            this.print_master.Text = "PRINT DISPLAYED";
             this.print_master.UseVisualStyleBackColor = true;
             this.print_master.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -169,16 +168,6 @@
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "DEPARTMENT:";
-            // 
-            // btn_print
-            // 
-            this.btn_print.Location = new System.Drawing.Point(668, 580);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(124, 23);
-            this.btn_print.TabIndex = 1;
-            this.btn_print.Text = "PRINT DISPLAYED";
-            this.btn_print.UseVisualStyleBackColor = true;
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // dataGridView1
             // 
@@ -220,7 +209,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_print;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cb_dept;
         private System.Windows.Forms.Label label1;
