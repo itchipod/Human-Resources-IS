@@ -272,22 +272,27 @@ namespace HRIS.User_Control_Employee
 
         private void btnPrintInfo_Click(object sender, EventArgs e)
         {
-            string fileName = @"C:\Users\Public\Documents\Info Sheet.docx";
+            string fileName = @"C:\Documents and Settings\HR\InfoSheet.docx";
 
             // Create a document in memory:
             var doc = DocX.Create(fileName);
 
             // Insert a paragrpah:
-            doc.InsertParagraph("Employee ID: " +tb_empid.Text);
-            doc.InsertParagraph("\nEmployee Name: " + tb_fname.Text + " " +tb_mname.Text + " " + tb_lname.Text + " " + tb_sname.Text);
-            doc.InsertParagraph("\nEmployment Status: " + cb_empstatus.Text);
-            doc.InsertParagraph("\nDate Hired: " + date_hired.Text);
-            doc.InsertParagraph("\nDesignation: " + tb_position.Text);
-            doc.InsertParagraph("\nDepartment: " + tb_dept.Text);
-            doc.InsertParagraph("\nSupervisor: " + tb_supervisor.Text);
-            doc.InsertParagraph("\nCurrent Address: " + tb_address.Text);
-            doc.InsertParagraph("\nBirthday: " + date_birth.Text);
-            doc.InsertParagraph("\nAge: " + tb_age.Text);
+            doc.InsertParagraph("Employee ID:                 " +tb_empid.Text);
+            doc.InsertParagraph("\nEmployee Name:          " + tb_fname.Text + " " +tb_mname.Text + " " + tb_lname.Text + " " + tb_sname.Text);
+            doc.InsertParagraph("\nEmployment Status:     " + cb_empstatus.Text);
+            doc.InsertParagraph("\nDate Hired:                     " + date_hired.Text);
+            doc.InsertParagraph("\nDesignation:                " + tb_position.Text);
+            doc.InsertParagraph("\nDepartment:                  " + tb_dept.Text);
+            doc.InsertParagraph("\nSupervisor:                  " + tb_supervisor.Text);
+            doc.InsertParagraph("\nCurrent Address:           " + tb_address.Text);
+            doc.InsertParagraph("\nBirthday:                         " + date_birth.Text);
+            doc.InsertParagraph("\nAge:                                 " + tb_age.Text);
+            doc.InsertParagraph("\nTIN:                                 " + tb_TIN.Text);
+            doc.InsertParagraph("\nSSS:                                 " + tb_SSS.Text);
+            doc.InsertParagraph("\nValucare:                         " + tb_valucare.Text);
+            doc.InsertParagraph("\nPag-ibig:                         " + tb_pagibig.Text);
+            doc.InsertParagraph("\nPhilhealth:                     " + tb_Philhealth.Text);
 
             // Save to the output directory:
             doc.Save();

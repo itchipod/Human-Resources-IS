@@ -105,6 +105,7 @@ namespace HRIS
             UC_Lists.UC_Birthday uc = new UC_Lists.UC_Birthday();
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
+
         }
 
         private void backToDashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,6 +113,8 @@ namespace HRIS
             User_Control.UC_Dashboard uc = new User_Control.UC_Dashboard();
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
+            removecolors();
+            backToDashboardToolStripMenuItem.BackColor = System.Drawing.Color.Cyan;
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)

@@ -90,26 +90,17 @@ namespace HRIS.UC_Lists
                 
                 birthdays[o] = name + "- " + birth;
             }
-            CreateSampleDocument();
+            CreateDocument();
         }
 
        
 
-        public void CreateSampleDocument()
-        {
-            // Modify to suit your machine:
-            string fileName = @"C:\Users\Public\Documents\Birthdays.docx";
-
-            // Create a document in memory:
-            var doc = DocX.Create(fileName);
-
-            // Insert a paragrpah:
-            doc.InsertParagraph(string.Join(" \n", birthdays));
-
-            // Save to the output directory:
-            doc.Save();
-
-            // Open in Word:
+        public void CreateDocument()
+        {           
+            string fileName = @"C:\Documents and Settings\HR\Birthdays.docx";           
+            var doc = DocX.Create(fileName);           
+            doc.InsertParagraph(string.Join(" \n", birthdays));           
+            doc.Save();         
             Process.Start("WINWORD.EXE", fileName);
         }
     }

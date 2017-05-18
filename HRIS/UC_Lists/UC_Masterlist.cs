@@ -225,24 +225,15 @@ namespace HRIS.UC_Lists
                 throw;
             }
 
-            CreateSampleDocument(string.Join(" \n", numberperdep));
+            CreateDocument(string.Join(" \n", numberperdep));
         }
 
-        public void CreateSampleDocument(string count)
-        {
-            // Modify to suit your machine:
-            string fileName = @"C:\Users\Public\Documents\Employee Number per Department.docx";
-
-            // Create a document in memory:
-            var doc = DocX.Create(fileName);
-
-            // Insert a paragrpah:
-            doc.InsertParagraph(count);
-
-            // Save to the output directory:
-            doc.Save();
-
-            // Open in Word:
+        public void CreateDocument(string count)
+        {            
+            string fileName = @"C:\Documents and Settings\HR\Employees per Department.docx";            
+            var doc = DocX.Create(fileName);           
+            doc.InsertParagraph(count);           
+            doc.Save();            
             Process.Start("WINWORD.EXE", fileName);
         }
 
