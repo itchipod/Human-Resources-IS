@@ -69,7 +69,7 @@ namespace HRIS.User_Control_Employee
                         dg_medical.Columns[2].HeaderText = "Date of Contingency";
                         dg_medical.Columns[3].HeaderText = "Place of Contingency";
                         dg_medical.Columns[4].HeaderText = "Nature of Contingency";
-                        dg_medical.Columns[5].HeaderText = "Days Absent";
+                        dg_medical.Columns[5].HeaderText = "Days Approved by SSS";
                         dg_medical.Columns[6].HeaderText = "Remarks";
 
                     }
@@ -118,9 +118,10 @@ namespace HRIS.User_Control_Employee
                     myconn.Open();
                     OleDbCommand cmd = new OleDbCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = @"INSERT INTO Emp_Medical (Emp_ID, Date_Contingency, Place_Contingency, Nature_Contingency, Days_Absent, Remarks) VALUES (@id, @date, @place, @nature, @days, @remarks) ";
+                    cmd.CommandText = @"INSERT INTO Emp_Medical (Emp_ID, Date_Contingency, Time_Contingency, Place_Contingency, Nature_Contingency, Days_Absent, Remarks) VALUES (@id, @date, @time, @place, @nature, @days, @remarks) ";
                     cmd.Parameters.AddWithValue("@id", empsystemid);
                     cmd.Parameters.AddWithValue("@date", date_contingency.Value.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@time", date_timeof.Value.ToShortTimeString());
                     cmd.Parameters.AddWithValue("@place", tb_place.Text);
                     cmd.Parameters.AddWithValue("@nature", tb_nature.Text);
                     cmd.Parameters.AddWithValue("@days", tb_days.Text);

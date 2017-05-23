@@ -44,8 +44,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tb_position = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_specificjob = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.cb_payrolltype = new System.Windows.Forms.ComboBox();
             this.tb_supervisor = new System.Windows.Forms.TextBox();
             this.tb_zipcode = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.date_contract = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
@@ -58,6 +62,8 @@
             this.tb_dept = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tb_relationship = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tb_contactaddress = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.tb_contactnumber = new System.Windows.Forms.TextBox();
@@ -162,16 +168,16 @@
             // 
             // pic_id
             // 
-            this.pic_id.Location = new System.Drawing.Point(595, 42);
+            this.pic_id.Location = new System.Drawing.Point(578, 42);
             this.pic_id.Name = "pic_id";
-            this.pic_id.Size = new System.Drawing.Size(200, 201);
+            this.pic_id.Size = new System.Drawing.Size(179, 187);
             this.pic_id.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_id.TabIndex = 8;
             this.pic_id.TabStop = false;
             // 
             // btn_upload
             // 
-            this.btn_upload.Location = new System.Drawing.Point(595, 249);
+            this.btn_upload.Location = new System.Drawing.Point(578, 239);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(75, 23);
             this.btn_upload.TabIndex = 9;
@@ -181,7 +187,7 @@
             // 
             // btn_printID
             // 
-            this.btn_printID.Location = new System.Drawing.Point(697, 249);
+            this.btn_printID.Location = new System.Drawing.Point(682, 239);
             this.btn_printID.Name = "btn_printID";
             this.btn_printID.Size = new System.Drawing.Size(75, 23);
             this.btn_printID.TabIndex = 10;
@@ -220,7 +226,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 66);
+            this.label8.Location = new System.Drawing.Point(7, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 13);
             this.label8.TabIndex = 15;
@@ -228,15 +234,19 @@
             // 
             // tb_position
             // 
-            this.tb_position.Location = new System.Drawing.Point(56, 63);
+            this.tb_position.Location = new System.Drawing.Point(55, 63);
             this.tb_position.Name = "tb_position";
             this.tb_position.Size = new System.Drawing.Size(102, 20);
             this.tb_position.TabIndex = 16;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tb_specificjob);
+            this.groupBox1.Controls.Add(this.label34);
+            this.groupBox1.Controls.Add(this.cb_payrolltype);
             this.groupBox1.Controls.Add(this.tb_supervisor);
             this.groupBox1.Controls.Add(this.tb_zipcode);
+            this.groupBox1.Controls.Add(this.label33);
             this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.date_contract);
             this.groupBox1.Controls.Add(this.label28);
@@ -253,10 +263,39 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(6, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(580, 201);
+            this.groupBox1.Size = new System.Drawing.Size(566, 201);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EMPLOYMENT DETAILS";
+            // 
+            // tb_specificjob
+            // 
+            this.tb_specificjob.Location = new System.Drawing.Point(79, 95);
+            this.tb_specificjob.Name = "tb_specificjob";
+            this.tb_specificjob.Size = new System.Drawing.Size(102, 20);
+            this.tb_specificjob.TabIndex = 34;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(6, 98);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(68, 13);
+            this.label34.TabIndex = 33;
+            this.label34.Text = "Specific Job:";
+            // 
+            // cb_payrolltype
+            // 
+            this.cb_payrolltype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_payrolltype.FormattingEnabled = true;
+            this.cb_payrolltype.Items.AddRange(new object[] {
+            "DAILY",
+            "MONTHLY",
+            "OFFICER"});
+            this.cb_payrolltype.Location = new System.Drawing.Point(263, 95);
+            this.cb_payrolltype.Name = "cb_payrolltype";
+            this.cb_payrolltype.Size = new System.Drawing.Size(121, 21);
+            this.cb_payrolltype.TabIndex = 32;
             // 
             // tb_supervisor
             // 
@@ -268,15 +307,24 @@
             // 
             // tb_zipcode
             // 
-            this.tb_zipcode.Location = new System.Drawing.Point(64, 134);
+            this.tb_zipcode.Location = new System.Drawing.Point(62, 163);
             this.tb_zipcode.Name = "tb_zipcode";
             this.tb_zipcode.Size = new System.Drawing.Size(102, 20);
             this.tb_zipcode.TabIndex = 29;
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(192, 98);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(68, 13);
+            this.label33.TabIndex = 31;
+            this.label33.Text = "Payroll Type:";
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 137);
+            this.label29.Location = new System.Drawing.Point(7, 166);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(53, 13);
             this.label29.TabIndex = 28;
@@ -325,7 +373,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 100);
+            this.label14.Location = new System.Drawing.Point(6, 129);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(85, 13);
             this.label14.TabIndex = 21;
@@ -333,9 +381,9 @@
             // 
             // tb_address
             // 
-            this.tb_address.Location = new System.Drawing.Point(91, 97);
+            this.tb_address.Location = new System.Drawing.Point(92, 126);
             this.tb_address.Name = "tb_address";
-            this.tb_address.Size = new System.Drawing.Size(460, 20);
+            this.tb_address.Size = new System.Drawing.Size(465, 20);
             this.tb_address.TabIndex = 22;
             // 
             // date_hired
@@ -376,6 +424,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tb_relationship);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.tb_contactaddress);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.tb_contactnumber);
@@ -408,11 +458,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PERSONAL DETAILS";
             // 
+            // tb_relationship
+            // 
+            this.tb_relationship.Location = new System.Drawing.Point(329, 164);
+            this.tb_relationship.Name = "tb_relationship";
+            this.tb_relationship.Size = new System.Drawing.Size(120, 20);
+            this.tb_relationship.TabIndex = 41;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(255, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Relationship:";
+            // 
             // tb_contactaddress
             // 
             this.tb_contactaddress.Location = new System.Drawing.Point(90, 195);
             this.tb_contactaddress.Name = "tb_contactaddress";
-            this.tb_contactaddress.Size = new System.Drawing.Size(344, 20);
+            this.tb_contactaddress.Size = new System.Drawing.Size(243, 20);
             this.tb_contactaddress.TabIndex = 39;
             // 
             // label27
@@ -426,7 +492,7 @@
             // 
             // tb_contactnumber
             // 
-            this.tb_contactnumber.Location = new System.Drawing.Point(319, 164);
+            this.tb_contactnumber.Location = new System.Drawing.Point(440, 195);
             this.tb_contactnumber.Name = "tb_contactnumber";
             this.tb_contactnumber.Size = new System.Drawing.Size(115, 20);
             this.tb_contactnumber.TabIndex = 24;
@@ -441,7 +507,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(228, 167);
+            this.label26.Location = new System.Drawing.Point(349, 198);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(85, 13);
             this.label26.TabIndex = 23;
@@ -610,7 +676,7 @@
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Location = new System.Drawing.Point(593, 290);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(179, 232);
+            this.groupBox3.Size = new System.Drawing.Size(164, 232);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             // 
@@ -618,7 +684,7 @@
             // 
             this.tb_pagibig.Location = new System.Drawing.Point(61, 134);
             this.tb_pagibig.Name = "tb_pagibig";
-            this.tb_pagibig.Size = new System.Drawing.Size(103, 20);
+            this.tb_pagibig.Size = new System.Drawing.Size(97, 20);
             this.tb_pagibig.TabIndex = 38;
             // 
             // label31
@@ -634,7 +700,7 @@
             // 
             this.tb_Philhealth.Location = new System.Drawing.Point(61, 100);
             this.tb_Philhealth.Name = "tb_Philhealth";
-            this.tb_Philhealth.Size = new System.Drawing.Size(103, 20);
+            this.tb_Philhealth.Size = new System.Drawing.Size(97, 20);
             this.tb_Philhealth.TabIndex = 36;
             // 
             // label30
@@ -650,7 +716,7 @@
             // 
             this.tb_valucare.Location = new System.Drawing.Point(61, 170);
             this.tb_valucare.Name = "tb_valucare";
-            this.tb_valucare.Size = new System.Drawing.Size(103, 20);
+            this.tb_valucare.Size = new System.Drawing.Size(97, 20);
             this.tb_valucare.TabIndex = 34;
             // 
             // label20
@@ -666,7 +732,7 @@
             // 
             this.tb_SSS.Location = new System.Drawing.Point(61, 63);
             this.tb_SSS.Name = "tb_SSS";
-            this.tb_SSS.Size = new System.Drawing.Size(103, 20);
+            this.tb_SSS.Size = new System.Drawing.Size(97, 20);
             this.tb_SSS.TabIndex = 32;
             // 
             // label19
@@ -682,7 +748,7 @@
             // 
             this.tb_TIN.Location = new System.Drawing.Point(61, 24);
             this.tb_TIN.Name = "tb_TIN";
-            this.tb_TIN.Size = new System.Drawing.Size(103, 20);
+            this.tb_TIN.Size = new System.Drawing.Size(97, 20);
             this.tb_TIN.TabIndex = 30;
             // 
             // label18
@@ -696,7 +762,7 @@
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(697, 561);
+            this.btn_update.Location = new System.Drawing.Point(511, 561);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(75, 23);
             this.btn_update.TabIndex = 20;
@@ -707,7 +773,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(503, 48);
+            this.label32.Location = new System.Drawing.Point(491, 47);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(36, 13);
             this.label32.TabIndex = 21;
@@ -715,7 +781,7 @@
             // 
             // tb_sname
             // 
-            this.tb_sname.Location = new System.Drawing.Point(541, 43);
+            this.tb_sname.Location = new System.Drawing.Point(529, 42);
             this.tb_sname.Name = "tb_sname";
             this.tb_sname.Size = new System.Drawing.Size(41, 20);
             this.tb_sname.TabIndex = 40;
@@ -729,7 +795,7 @@
             // 
             // btnPrintInfo
             // 
-            this.btnPrintInfo.Location = new System.Drawing.Point(593, 561);
+            this.btnPrintInfo.Location = new System.Drawing.Point(407, 561);
             this.btnPrintInfo.Name = "btnPrintInfo";
             this.btnPrintInfo.Size = new System.Drawing.Size(98, 23);
             this.btnPrintInfo.TabIndex = 42;
@@ -760,7 +826,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UC_Overview";
-            this.Size = new System.Drawing.Size(839, 601);
+            this.Size = new System.Drawing.Size(791, 601);
             this.Load += new System.EventHandler(this.UC_Overview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_id)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -845,5 +911,11 @@
         private System.Windows.Forms.TextBox tb_sname;
         private System.Windows.Forms.TextBox tb_empid;
         private System.Windows.Forms.Button btnPrintInfo;
+        private System.Windows.Forms.TextBox tb_relationship;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cb_payrolltype;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox tb_specificjob;
+        private System.Windows.Forms.Label label34;
     }
 }

@@ -33,12 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_print = new System.Windows.Forms.Button();
+            this.lbl_total = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_total);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cb_status);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -97,6 +101,24 @@
             this.btn_print.UseVisualStyleBackColor = true;
             this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
+            // lbl_total
+            // 
+            this.lbl_total.AutoSize = true;
+            this.lbl_total.Location = new System.Drawing.Point(899, 39);
+            this.lbl_total.Name = "lbl_total";
+            this.lbl_total.Size = new System.Drawing.Size(25, 13);
+            this.lbl_total.TabIndex = 9;
+            this.lbl_total.Text = "000";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(780, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Number of Employees:";
+            // 
             // UC_EmpStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,5 +142,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.Label lbl_total;
+        private System.Windows.Forms.Label label2;
     }
 }

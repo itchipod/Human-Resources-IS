@@ -34,6 +34,8 @@
             this.departmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.positionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.performanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPerformanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memorandumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.violationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +43,7 @@
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employmentStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.traineesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inactiveEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medicalReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.birthdaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,8 +51,6 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditTrailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.printPerformanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.performanceAppraisalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +109,23 @@
             this.employeeToolStripMenuItem.Text = "Employee ";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
+            // performanceAppraisalToolStripMenuItem
+            // 
+            this.performanceAppraisalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.printPerformanceAppraisalToolStripMenuItem});
+            this.performanceAppraisalToolStripMenuItem.Name = "performanceAppraisalToolStripMenuItem";
+            this.performanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
+            this.performanceAppraisalToolStripMenuItem.Text = "Performance Appraisal";
+            this.performanceAppraisalToolStripMenuItem.Visible = false;
+            this.performanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.performanceAppraisalToolStripMenuItem_Click);
+            // 
+            // printPerformanceAppraisalToolStripMenuItem
+            // 
+            this.printPerformanceAppraisalToolStripMenuItem.Name = "printPerformanceAppraisalToolStripMenuItem";
+            this.printPerformanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.printPerformanceAppraisalToolStripMenuItem.Text = "Print Performance Appraisal";
+            this.printPerformanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.printPerformanceAppraisalToolStripMenuItem_Click);
+            // 
             // memorandumToolStripMenuItem
             // 
             this.memorandumToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -116,7 +134,6 @@
             this.memorandumToolStripMenuItem.Name = "memorandumToolStripMenuItem";
             this.memorandumToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.memorandumToolStripMenuItem.Text = "Memos/Reports";
-            this.memorandumToolStripMenuItem.Visible = false;
             this.memorandumToolStripMenuItem.Click += new System.EventHandler(this.memorandumToolStripMenuItem_Click);
             // 
             // memoToolStripMenuItem
@@ -130,6 +147,7 @@
             this.violationsToolStripMenuItem.Name = "violationsToolStripMenuItem";
             this.violationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.violationsToolStripMenuItem.Text = "Violations";
+            this.violationsToolStripMenuItem.Click += new System.EventHandler(this.violationsToolStripMenuItem_Click);
             // 
             // listOfReportsToolStripMenuItem
             // 
@@ -148,6 +166,7 @@
             this.employeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allEmployeesToolStripMenuItem,
             this.employmentStatusToolStripMenuItem,
+            this.traineesToolStripMenuItem,
             this.inactiveEmployeesToolStripMenuItem});
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             this.employeesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
@@ -166,6 +185,12 @@
             this.employmentStatusToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.employmentStatusToolStripMenuItem.Text = "Employment Status";
             this.employmentStatusToolStripMenuItem.Click += new System.EventHandler(this.employmentStatusToolStripMenuItem_Click);
+            // 
+            // traineesToolStripMenuItem
+            // 
+            this.traineesToolStripMenuItem.Name = "traineesToolStripMenuItem";
+            this.traineesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.traineesToolStripMenuItem.Text = "Trainees";
             // 
             // inactiveEmployeesToolStripMenuItem
             // 
@@ -215,23 +240,6 @@
             this.mainpanel.Size = new System.Drawing.Size(1187, 689);
             this.mainpanel.TabIndex = 1;
             // 
-            // printPerformanceAppraisalToolStripMenuItem
-            // 
-            this.printPerformanceAppraisalToolStripMenuItem.Name = "printPerformanceAppraisalToolStripMenuItem";
-            this.printPerformanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.printPerformanceAppraisalToolStripMenuItem.Text = "Print Performance Appraisal";
-            this.printPerformanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.printPerformanceAppraisalToolStripMenuItem_Click);
-            // 
-            // performanceAppraisalToolStripMenuItem
-            // 
-            this.performanceAppraisalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.printPerformanceAppraisalToolStripMenuItem});
-            this.performanceAppraisalToolStripMenuItem.Name = "performanceAppraisalToolStripMenuItem";
-            this.performanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
-            this.performanceAppraisalToolStripMenuItem.Text = "Performance Appraisal";
-            this.performanceAppraisalToolStripMenuItem.Visible = false;
-            this.performanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.performanceAppraisalToolStripMenuItem_Click);
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,6 +284,7 @@
         private System.Windows.Forms.ToolStripMenuItem auditTrailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem performanceAppraisalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printPerformanceAppraisalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem traineesToolStripMenuItem;
     }
 }
 

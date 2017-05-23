@@ -169,5 +169,12 @@ namespace HRIS
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
         }
+
+        private void violationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_Memo.UC_Violation uc = new UC_Memo.UC_Violation();
+            mainpanel.Controls.Clear();
+            mainpanel.Controls.Add(uc);
+        }
     }
 }

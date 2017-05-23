@@ -106,21 +106,12 @@ namespace HRIS.User_Control_Employee
                     myconn.Open();
                     OleDbCommand cmd = new OleDbCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = @"INSERT INTO List_InactiveEmp(Emp_ID, Last_Name, Mid_Name, First_Name, Date_Hired, Date_Remove, Emp_Position, Reason_Leaving, SysEmp_ID) VALUES (@id, @lname, @mname, @fname, @datehired, @dateremoved, @pos, @reason, @sysid)";
-                    cmd.Parameters.AddWithValue("@id", tb_id.Text);
-                    cmd.Parameters.AddWithValue("@lname", tb_lname.Text);
-                    cmd.Parameters.AddWithValue("@mname", tb_mname.Text);
-                    cmd.Parameters.AddWithValue("@fname", tb_fname.Text);
-                    
-                    cmd.Parameters.AddWithValue("@datehired", date_hired.Value.ToShortDateString());
-                    cmd.Parameters.AddWithValue("@dateremoved", date_removed.Value.ToShortDateString());
-                    cmd.Parameters.AddWithValue("@pos", tb_position.Text);
+                    cmd.CommandText = @"INSERT INTO List_InactiveEmp(Date_Remove, Reason_Leaving, SysEmp_ID) VALUES (@dateremoved, @reason, @sysid)";                   
+                    cmd.Parameters.AddWithValue("@dateremoved", date_removed.Value.ToShortDateString());                   
                     cmd.Parameters.AddWithValue("@reason", tb_reason.Text);
                     cmd.Parameters.AddWithValue("@sysid", empsystemid);
                     cmd.Connection = myconn;
-                    cmd.ExecuteNonQuery();
-
-                    
+                    cmd.ExecuteNonQuery();                   
                     //ue.loademployees();
                     this.Close();
 

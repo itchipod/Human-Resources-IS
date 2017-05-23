@@ -76,6 +76,8 @@ namespace HRIS.UC_Lists
                 status = "Permanent";
             //MessageBox.Show(status);
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Emp_Status LIKE '%{0}%'", status);
+            int count = dataGridView1.Rows.Count;
+            lbl_total.Text = count.ToString();
         }
 
         private void btn_print_Click(object sender, EventArgs e)

@@ -29,58 +29,65 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dg_performance = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dg_violation = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btn_Del = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_performance)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_violation)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dg_performance);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 202);
+            this.groupBox1.Size = new System.Drawing.Size(709, 202);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PERFORMANCE APPRAISAL";
             // 
-            // dataGridView1
+            // dg_performance
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(555, 157);
-            this.dataGridView1.TabIndex = 0;
+            this.dg_performance.AllowUserToAddRows = false;
+            this.dg_performance.AllowUserToDeleteRows = false;
+            this.dg_performance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dg_performance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_performance.Location = new System.Drawing.Point(7, 20);
+            this.dg_performance.Name = "dg_performance";
+            this.dg_performance.ReadOnly = true;
+            this.dg_performance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_performance.Size = new System.Drawing.Size(696, 157);
+            this.dg_performance.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Controls.Add(this.btn_Del);
+            this.groupBox2.Controls.Add(this.dg_violation);
             this.groupBox2.Location = new System.Drawing.Point(4, 212);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(578, 202);
+            this.groupBox2.Size = new System.Drawing.Size(709, 219);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MEMOS/VIOLATIONS";
             // 
-            // dataGridView2
+            // dg_violation
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 28);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(555, 157);
-            this.dataGridView2.TabIndex = 1;
+            this.dg_violation.AllowUserToAddRows = false;
+            this.dg_violation.AllowUserToDeleteRows = false;
+            this.dg_violation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dg_violation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_violation.Location = new System.Drawing.Point(7, 28);
+            this.dg_violation.Name = "dg_violation";
+            this.dg_violation.ReadOnly = true;
+            this.dg_violation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_violation.Size = new System.Drawing.Size(696, 157);
+            this.dg_violation.TabIndex = 1;
+            this.dg_violation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_violation_CellClick);
             // 
             // button1
             // 
@@ -90,6 +97,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "VIEW PERFORMANCE APPRAISAL";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // button2
             // 
@@ -99,6 +107,19 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "VIEW MEMOS";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_Del
+            // 
+            this.btn_Del.Location = new System.Drawing.Point(607, 190);
+            this.btn_Del.Name = "btn_Del";
+            this.btn_Del.Size = new System.Drawing.Size(96, 23);
+            this.btn_Del.TabIndex = 4;
+            this.btn_Del.Text = "DELETE";
+            this.btn_Del.UseVisualStyleBackColor = true;
+            this.btn_Del.Visible = false;
+            this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
             // 
             // UC_Performance
             // 
@@ -109,11 +130,12 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_Performance";
-            this.Size = new System.Drawing.Size(596, 472);
+            this.Size = new System.Drawing.Size(775, 472);
+            this.Load += new System.EventHandler(this.UC_Performance_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_performance)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_violation)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,9 +144,10 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dg_performance;
+        private System.Windows.Forms.DataGridView dg_violation;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Del;
     }
 }

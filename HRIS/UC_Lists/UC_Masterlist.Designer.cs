@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.cb_column2 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -49,6 +50,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cb_column2);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.lbl_total);
             this.groupBox1.Controls.Add(this.label2);
@@ -189,6 +191,16 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // cb_column2
+            // 
+            this.cb_column2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_column2.FormattingEnabled = true;
+            this.cb_column2.Location = new System.Drawing.Point(657, 19);
+            this.cb_column2.Name = "cb_column2";
+            this.cb_column2.Size = new System.Drawing.Size(135, 21);
+            this.cb_column2.TabIndex = 13;
+            this.cb_column2.Visible = false;
+            // 
             // UC_Masterlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cb_Column;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cb_column2;
     }
 }

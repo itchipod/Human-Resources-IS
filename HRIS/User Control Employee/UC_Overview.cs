@@ -29,6 +29,7 @@ namespace HRIS.User_Control_Employee
         {
             gettempid();
             loaddepartment();
+            cb_payrolltype.SelectedIndex = 0;
             setTextboxes();
             
         }
@@ -97,7 +98,9 @@ namespace HRIS.User_Control_Employee
                         date_contract.Text = ds.Tables[0].Rows[0]["Contract_Exp"].ToString();
                         date_hired.Text = ds.Tables[0].Rows[0]["Date_Hired"].ToString();
                         pic_id.ImageLocation = ds.Tables[0].Rows[0]["ID_path"].ToString();
-
+                        tb_relationship.Text = ds.Tables[0].Rows[0]["Contact_Relation"].ToString();
+                        tb_specificjob.Text = ds.Tables[0].Rows[0]["Specific_Job"].ToString();
+                        cb_payrolltype.Text = ds.Tables[0].Rows[0]["Payroll_Type"].ToString();
                     }
                 }
             }
@@ -119,7 +122,7 @@ namespace HRIS.User_Control_Employee
                     myconn.Open();
                     OleDbCommand cmd = new OleDbCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = @"UPDATE Emp_Overview set Emp_ID=@empid, Last_Name= StrConv([@lastname], 3), Mid_Name=StrConv([@midname], 3), Suffix_Name=@suffixname, First_Name=StrConv([@firstname], 3), Emp_Status=@empstatus, Date_Hired=@datehired, Contract_Exp=@contractexp, Emp_Position=@empposition, Emp_Dept=@empdept, Supervisor=@supervisor, Zipcode=@zipcode, Current_Address=@currentaddress, Gender=@gender, Civil_Status=@civilstatus, Citizenship=@citizenship, Religion=@religion, Emp_Age=@empage, Birthdate=@birthdate, Telephone=@telephone, Cellphone=@cellphone, Email=@email, Contact_Name=@contactname, Contact_Number=@contactnumber, Contact_Address=@contactaddress, TIN=@tin, SSS=@sss, Valucare=@valucare, Pagibig=@pagibig, Philhealth=@philhealth where ID=@id";
+                    cmd.CommandText = @"UPDATE Emp_Overview set Emp_ID=@empid, Last_Name= StrConv([@lastname], 3), Mid_Name=StrConv([@midname], 3), Suffix_Name=@suffixname, First_Name=StrConv([@firstname], 3), Emp_Status=@empstatus, Date_Hired=@datehired, Contract_Exp=@contractexp, Emp_Position=@empposition, Emp_Dept=@empdept, Supervisor=@supervisor, Zipcode=@zipcode, Current_Address=@currentaddress, Gender=@gender, Civil_Status=@civilstatus, Citizenship=@citizenship, Religion=@religion, Emp_Age=@empage, Birthdate=@birthdate, Telephone=@telephone, Cellphone=@cellphone, Email=@email, Contact_Name=@contactname, Contact_Relation=@rel, Contact_Number=@contactnumber, Contact_Address=@contactaddress, TIN=@tin, SSS=@sss, Valucare=@valucare, Pagibig=@pagibig, Philhealth=@philhealth, Payroll_Type=@paytype, Specific_Job=@spec where ID=@id";
                     cmd.Parameters.AddWithValue("@empid", tb_empid.Text);
                     cmd.Parameters.AddWithValue("@lastname", tb_lname.Text);
                     cmd.Parameters.AddWithValue("@midname", tb_mname.Text);
@@ -143,6 +146,7 @@ namespace HRIS.User_Control_Employee
                     cmd.Parameters.AddWithValue("@cellphone", tb_cell.Text);
                     cmd.Parameters.AddWithValue("@email", tb_email.Text);
                     cmd.Parameters.AddWithValue("@contactname", tb_contactname.Text);
+                    cmd.Parameters.AddWithValue("@rel", tb_relationship.Text);
                     cmd.Parameters.AddWithValue("@contactnumber", tb_contactnumber.Text);
                     cmd.Parameters.AddWithValue("@contactaddress", tb_contactaddress.Text);
                     cmd.Parameters.AddWithValue("@tin", tb_TIN.Text);
@@ -150,6 +154,8 @@ namespace HRIS.User_Control_Employee
                     cmd.Parameters.AddWithValue("@valucare", tb_valucare.Text);
                     cmd.Parameters.AddWithValue("@pagibig",  tb_pagibig.Text);
                     cmd.Parameters.AddWithValue("@philhealth", tb_Philhealth.Text);
+                    cmd.Parameters.AddWithValue("@paytype", cb_payrolltype.Text);
+                    cmd.Parameters.AddWithValue("@spec", tb_specificjob.Text);
                     cmd.Parameters.AddWithValue("@id", empsystemid);
                     cmd.Connection = myconn;
                     cmd.ExecuteNonQuery();

@@ -120,7 +120,6 @@
             this.performanceToolStripMenuItem.Name = "performanceToolStripMenuItem";
             this.performanceToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.performanceToolStripMenuItem.Text = "Performance";
-            this.performanceToolStripMenuItem.Visible = false;
             this.performanceToolStripMenuItem.Click += new System.EventHandler(this.performanceToolStripMenuItem_Click);
             // 
             // tb_searchemp

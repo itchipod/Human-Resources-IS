@@ -77,8 +77,11 @@ namespace HRIS.UC_Lists
                         dataGridView1.Columns[29].HeaderText = "Pagibig";
                         dataGridView1.Columns[30].HeaderText = "Philhealth";
                         dataGridView1.Columns[31].Visible = false; //id path
-                        for(int i=1;i<32;i++)
-                        cb_Column.Items.Add(dataGridView1.Columns[i].Name.ToString());
+                        for (int i = 1; i < dataGridView1.Columns.Count; i++)
+                        {
+                            cb_column2.Items.Add(dataGridView1.Columns[i].Name.ToString());
+                            cb_Column.Items.Add(dataGridView1.Columns[i].HeaderText.ToString());
+                        }
                     }
                 }
             }
@@ -175,7 +178,8 @@ namespace HRIS.UC_Lists
 
         private void tb_Value_TextChanged(object sender, EventArgs e)
         {
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(cb_Column.Text+ " LIKE '%{0}%'",  tb_Value.Text);
+            cb_column2.SelectedIndex = cb_Column.SelectedIndex;
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("" + cb_column2.Text + " LIKE '%{0}%'",  tb_Value.Text);
             countRows();
         }
 
@@ -236,8 +240,6 @@ namespace HRIS.UC_Lists
             doc.Save();            
             Process.Start("WINWORD.EXE", fileName);
         }
-
-
     }
     
 }
