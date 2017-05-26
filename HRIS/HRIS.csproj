@@ -103,6 +103,12 @@
     <Compile Include="Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Overview.Designer.cs">
+      <DependentUpon>Form_Overview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Print Forms\Print_Masterlist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,17 +262,20 @@
     <Compile Include="User Control\UC_MaintDepartment.Designer.cs">
       <DependentUpon>UC_MaintDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Control\UC_PerformanceAppraisalPrint.cs">
+    <Compile Include="User Control\UC_PerformanceAppraisal.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Control\UC_PerformanceAppraisalPrint.Designer.cs">
-      <DependentUpon>UC_PerformanceAppraisalPrint.cs</DependentUpon>
+    <Compile Include="User Control\UC_PerformanceAppraisal.Designer.cs">
+      <DependentUpon>UC_PerformanceAppraisal.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Audit Trail\UC_Audit.resx">
       <DependentUpon>UC_Audit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Overview.resx">
+      <DependentUpon>Form_Overview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Print Forms\Print_Masterlist.resx">
       <DependentUpon>Print_Masterlist.cs</DependentUpon>
@@ -353,8 +362,8 @@
     <EmbeddedResource Include="User Control\UC_MaintDepartment.resx">
       <DependentUpon>UC_MaintDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Control\UC_PerformanceAppraisalPrint.resx">
-      <DependentUpon>UC_PerformanceAppraisalPrint.cs</DependentUpon>
+    <EmbeddedResource Include="User Control\UC_PerformanceAppraisal.resx">
+      <DependentUpon>UC_PerformanceAppraisal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -437,6 +446,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons8-Windows-8-Editing-Overview-Pages-1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

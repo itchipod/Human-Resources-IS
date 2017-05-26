@@ -31,10 +31,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dg_performance = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_Del = new System.Windows.Forms.Button();
             this.dg_violation = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btn_Del = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_performance)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -75,6 +75,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MEMOS/VIOLATIONS";
             // 
+            // btn_Del
+            // 
+            this.btn_Del.Location = new System.Drawing.Point(607, 190);
+            this.btn_Del.Name = "btn_Del";
+            this.btn_Del.Size = new System.Drawing.Size(96, 23);
+            this.btn_Del.TabIndex = 4;
+            this.btn_Del.Text = "DELETE";
+            this.btn_Del.UseVisualStyleBackColor = true;
+            this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
+            // 
             // dg_violation
             // 
             this.dg_violation.AllowUserToAddRows = false;
@@ -109,17 +119,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btn_Del
-            // 
-            this.btn_Del.Location = new System.Drawing.Point(607, 190);
-            this.btn_Del.Name = "btn_Del";
-            this.btn_Del.Size = new System.Drawing.Size(96, 23);
-            this.btn_Del.TabIndex = 4;
-            this.btn_Del.Text = "DELETE";
-            this.btn_Del.UseVisualStyleBackColor = true;
-            this.btn_Del.Visible = false;
-            this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
             // 
             // UC_Performance
             // 

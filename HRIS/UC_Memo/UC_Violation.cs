@@ -33,7 +33,7 @@ namespace HRIS.UC_Memo
         {
             try
             {
-                string sqlstring = "SELECT Emp_Violation.ID, Emp_Violation.Emp_ID, (Emp_Overview.First_Name + ' ' + Emp_Overview.Last_Name + ' ' + Emp_Overview.Suffix_Name) AS Name, Offense, Violation_Date, Violation_Place, Violation_Time, Offense_Time, Penalty, Date_Effective from Emp_Violation LEFT JOIN Emp_Overview ON Emp_Violation.Emp_ID=Emp_Overview.ID";
+                string sqlstring = "SELECT Emp_Violation.ID, Emp_Violation.Emp_ID, (Emp_Overview.First_Name + ' ' + Emp_Overview.Last_Name + ' ' + Emp_Overview.Suffix_Name) AS Name, Emp_Overview.Emp_Dept, Offense, Violation_Date, Violation_Place, Violation_Time, Offense_Time, Penalty, Date_Effective from Emp_Violation LEFT JOIN Emp_Overview ON Emp_Violation.Emp_ID=Emp_Overview.ID";
                 using (OleDbConnection conn = new OleDbConnection(connstring))
                 {
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
@@ -44,13 +44,14 @@ namespace HRIS.UC_Memo
                         dg_violation.Columns[0].Visible = false;
                        
                         dg_violation.Columns[1].HeaderText = "ID";
-                        dg_violation.Columns[3].HeaderText = "Offense";
-                        dg_violation.Columns[4].HeaderText = "Violation Date";
-                        dg_violation.Columns[5].HeaderText = "Violation Place";
-                        dg_violation.Columns[6].HeaderText = "Violation Time";
-                        dg_violation.Columns[7].HeaderText = "Times offense is made";
-                        dg_violation.Columns[8].HeaderText = "Penalty";
-                        dg_violation.Columns[9].HeaderText = "Date Effective";
+                        dg_violation.Columns[3].HeaderText = "Department";
+                        dg_violation.Columns[4].HeaderText = "Offense";
+                        dg_violation.Columns[5].HeaderText = "Violation Date";
+                        dg_violation.Columns[6].HeaderText = "Violation Place";
+                        dg_violation.Columns[7].HeaderText = "Violation Time";
+                        dg_violation.Columns[8].HeaderText = "Times offense is made";
+                        dg_violation.Columns[9].HeaderText = "Penalty";
+                        dg_violation.Columns[10].HeaderText = "Date Effective";
                     }
                 }
             }
@@ -168,7 +169,14 @@ namespace HRIS.UC_Memo
         private void dg_violation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             id = dg_violation.SelectedRows[0].Cells[0].Value.ToString() + string.Empty;
-            id = dg_violation.SelectedRows[0].Cells[1].Value.ToString() + string.Empty;
+            empid = dg_violation.SelectedRows[0].Cells[1].Value.ToString() + string.Empty;
+            tb_offense.Text = dg_violation.SelectedRows[0].Cells[4].Value.ToString() + string.Empty;
+            date_violation.Text = dg_violation.SelectedRows[0].Cells[5].Value.ToString() + string.Empty;
+            tb_place.Text = dg_violation.SelectedRows[0].Cells[6].Value.ToString() + string.Empty;
+            time_violation.Text = dg_violation.SelectedRows[0].Cells[7].Value.ToString() + string.Empty;
+            tb_offensewas.Text = dg_violation.SelectedRows[0].Cells[8].Value.ToString() + string.Empty;
+            tb_penalty.Text = dg_violation.SelectedRows[0].Cells[9].Value.ToString() + string.Empty;
+            tb_effectivedate.Text = dg_violation.SelectedRows[0].Cells[10].Value.ToString() + string.Empty;
         }
 
         private void btn_remove_Click(object sender, EventArgs e)
@@ -188,8 +196,9 @@ namespace HRIS.UC_Memo
                     cmd.ExecuteNonQuery();
                     myconn.Close();
                     loaddb();
-                    audittrail("Deleted Violation Report for " + cb_emp.Text);
                     MessageBox.Show("Record deleted successfully");
+                    audittrail("Deleted Violation Report for " + cb_emp.Text);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -205,6 +214,30 @@ namespace HRIS.UC_Memo
         {
             Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
             a.add_log(_activity);
+        }
+
+        private void btn_overview_Click(object sender, EventArgs e)
+        {
+            string empid2 = cb_emp.SelectedValue.ToString();
+            try
+            {
+                myconn.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"UPDATE Temp_EmpID set TempEmpID=@empid where ID=@id";
+                cmd.Parameters.AddWithValue("@empid", empid2);
+                cmd.Parameters.AddWithValue("@id", 1);
+                cmd.Connection = myconn;
+                cmd.ExecuteNonQuery();
+                myconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                myconn.Close();
+            }
+            Form_Overview f = new Form_Overview();
+            f.Show();
         }
     }
 }

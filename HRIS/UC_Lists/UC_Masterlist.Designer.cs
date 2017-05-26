@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_column2 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tb_Value = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.cb_column2 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -50,6 +51,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cb_column2);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.lbl_total);
@@ -65,6 +67,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EMPLOYEE MASTERLIST";
+            // 
+            // cb_column2
+            // 
+            this.cb_column2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_column2.FormattingEnabled = true;
+            this.cb_column2.Location = new System.Drawing.Point(657, 19);
+            this.cb_column2.Name = "cb_column2";
+            this.cb_column2.Size = new System.Drawing.Size(135, 21);
+            this.cb_column2.TabIndex = 13;
+            this.cb_column2.Visible = false;
             // 
             // groupBox2
             // 
@@ -182,7 +194,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(916, 491);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -191,15 +203,14 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // cb_column2
+            // label5
             // 
-            this.cb_column2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_column2.FormattingEnabled = true;
-            this.cb_column2.Location = new System.Drawing.Point(657, 19);
-            this.cb_column2.Name = "cb_column2";
-            this.cb_column2.Size = new System.Drawing.Size(135, 21);
-            this.cb_column2.TabIndex = 13;
-            this.cb_column2.Visible = false;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 585);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(165, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "*double-click items to view details";
             // 
             // UC_Masterlist
             // 
@@ -235,5 +246,6 @@
         private System.Windows.Forms.ComboBox cb_Column;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cb_column2;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -26,6 +26,7 @@ namespace HRIS.UC_Lists
         private void UC_Masterlist_Load(object sender, EventArgs e)
         {
             loadmasterlist();
+            loadcbcolumns();
             loaddepartment();
             cb_dept.Text = "ALL";
             cb_Column.SelectedIndex = 0;
@@ -49,8 +50,10 @@ namespace HRIS.UC_Lists
                         dataGridView1.Columns[1].HeaderText = "ID";
                         dataGridView1.Columns[2].HeaderText = "Last Name";
                         dataGridView1.Columns[3].HeaderText = "Middle Name";
+                        dataGridView1.Columns[3].DisplayIndex = 5;
                         dataGridView1.Columns[4].HeaderText = "Suffix";
                         dataGridView1.Columns[5].HeaderText = "First Name";
+                        dataGridView1.Columns[5].DisplayIndex = 3;
                         dataGridView1.Columns[6].HeaderText = "Employee Status";
                         dataGridView1.Columns[7].HeaderText = "Date Hired";
                         dataGridView1.Columns[8].Visible = false; //contract expiration
@@ -69,19 +72,18 @@ namespace HRIS.UC_Lists
                         dataGridView1.Columns[21].HeaderText = "Cellphone";
                         dataGridView1.Columns[22].HeaderText = "Email";
                         dataGridView1.Columns[23].Visible = false; //contact name
-                        dataGridView1.Columns[24].Visible = false; //contact number
-                        dataGridView1.Columns[25].Visible = false; //contact address
-                        dataGridView1.Columns[26].HeaderText = "TIN";
-                        dataGridView1.Columns[27].HeaderText = "SSS";
-                        dataGridView1.Columns[28].HeaderText = "Valucare";
-                        dataGridView1.Columns[29].HeaderText = "Pagibig";
-                        dataGridView1.Columns[30].HeaderText = "Philhealth";
-                        dataGridView1.Columns[31].Visible = false; //id path
-                        for (int i = 1; i < dataGridView1.Columns.Count; i++)
-                        {
-                            cb_column2.Items.Add(dataGridView1.Columns[i].Name.ToString());
-                            cb_Column.Items.Add(dataGridView1.Columns[i].HeaderText.ToString());
-                        }
+                        dataGridView1.Columns[24].Visible = false; //contact relationship
+                        dataGridView1.Columns[25].Visible = false; //contact number
+                        dataGridView1.Columns[26].Visible = false; //contact number
+                        dataGridView1.Columns[27].HeaderText = "TIN";
+                        dataGridView1.Columns[28].HeaderText = "SSS";
+                        dataGridView1.Columns[29].HeaderText = "Valucare";
+                        dataGridView1.Columns[30].HeaderText = "Pagibig";
+                        dataGridView1.Columns[31].HeaderText = "Philhealth";  
+                        dataGridView1.Columns[32].Visible = false; //id path
+                        dataGridView1.Columns[33].HeaderText = "Payroll Type";
+                        dataGridView1.Columns[34].Visible = false; //id path
+                       
                     }
                 }
             }
@@ -92,6 +94,19 @@ namespace HRIS.UC_Lists
 
             }
         }
+
+        private void loadcbcolumns()
+        {
+            for (int i = 1; i < dataGridView1.Columns.Count; i++)
+            {
+                if (dataGridView1.Columns[i].Visible != false)
+                {
+                    cb_column2.Items.Add(dataGridView1.Columns[i].Name.ToString());
+                    cb_Column.Items.Add(dataGridView1.Columns[i].HeaderText.ToString());
+                }
+            }
+        }
+
 
         private void loadmasterlistdept()
         {
@@ -185,11 +200,26 @@ namespace HRIS.UC_Lists
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            //Form_Main fm = new Form_Main();
-            //User_Control.UC_Employee ue = new User_Control.UC_Employee();
-            //fm.mainpanel.Controls.Clear();
-            //fm.mainpanel.Controls.Add(ue);
+            string empid2 = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + string.Empty;
+            try
+            {
+                myconn.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"UPDATE Temp_EmpID set TempEmpID=@empid where ID=@id";
+                cmd.Parameters.AddWithValue("@empid", empid2);
+                cmd.Parameters.AddWithValue("@id", 1);
+                cmd.Connection = myconn;
+                cmd.ExecuteNonQuery();
+                myconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                myconn.Close();
+            }
+            Form_Overview f = new Form_Overview();
+            f.Show();
         }
 
         private void btn_numemployee_Click(object sender, EventArgs e)

@@ -157,7 +157,7 @@ namespace HRIS
 
         private void printPerformanceAppraisalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            User_Control.UC_PerformanceAppraisalPrint uc = new User_Control.UC_PerformanceAppraisalPrint();
+            User_Control.UC_PerformanceAppraisal uc = new User_Control.UC_PerformanceAppraisal();
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
             

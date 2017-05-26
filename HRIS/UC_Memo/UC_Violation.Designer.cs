@@ -49,12 +49,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cb_emp = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_overview = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_violation)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_overview);
             this.groupBox1.Controls.Add(this.btn_remove);
             this.groupBox1.Controls.Add(this.btn_update);
             this.groupBox1.Controls.Add(this.btn_add);
@@ -77,7 +79,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(8, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(693, 583);
+            this.groupBox1.Size = new System.Drawing.Size(745, 583);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "VIOLATION REPORT";
@@ -122,21 +124,21 @@
             this.dg_violation.Name = "dg_violation";
             this.dg_violation.ReadOnly = true;
             this.dg_violation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_violation.Size = new System.Drawing.Size(643, 418);
+            this.dg_violation.Size = new System.Drawing.Size(720, 418);
             this.dg_violation.TabIndex = 17;
             this.dg_violation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_violation_CellClick);
             // 
             // tb_effectivedate
             // 
-            this.tb_effectivedate.Location = new System.Drawing.Point(433, 81);
+            this.tb_effectivedate.Location = new System.Drawing.Point(580, 80);
             this.tb_effectivedate.Name = "tb_effectivedate";
-            this.tb_effectivedate.Size = new System.Drawing.Size(135, 20);
+            this.tb_effectivedate.Size = new System.Drawing.Size(104, 20);
             this.tb_effectivedate.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(349, 84);
+            this.label8.Location = new System.Drawing.Point(496, 83);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 15;
@@ -160,7 +162,7 @@
             // 
             // tb_offensewas
             // 
-            this.tb_offensewas.Location = new System.Drawing.Point(322, 49);
+            this.tb_offensewas.Location = new System.Drawing.Point(409, 80);
             this.tb_offensewas.Name = "tb_offensewas";
             this.tb_offensewas.Size = new System.Drawing.Size(69, 20);
             this.tb_offensewas.TabIndex = 12;
@@ -168,7 +170,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(248, 53);
+            this.label6.Location = new System.Drawing.Point(335, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 11;
@@ -210,7 +212,7 @@
             // date_violation
             // 
             this.date_violation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_violation.Location = new System.Drawing.Point(561, 21);
+            this.date_violation.Location = new System.Drawing.Point(329, 49);
             this.date_violation.Name = "date_violation";
             this.date_violation.Size = new System.Drawing.Size(91, 20);
             this.date_violation.TabIndex = 6;
@@ -218,7 +220,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(479, 25);
+            this.label3.Location = new System.Drawing.Point(247, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 5;
@@ -226,7 +228,7 @@
             // 
             // tb_place
             // 
-            this.tb_place.Location = new System.Drawing.Point(322, 21);
+            this.tb_place.Location = new System.Drawing.Point(383, 21);
             this.tb_place.Name = "tb_place";
             this.tb_place.Size = new System.Drawing.Size(135, 20);
             this.tb_place.TabIndex = 4;
@@ -234,7 +236,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 25);
+            this.label2.Location = new System.Drawing.Point(292, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 3;
@@ -258,13 +260,24 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Employee:";
             // 
+            // btn_overview
+            // 
+            this.btn_overview.BackgroundImage = global::HRIS.Properties.Resources.Icons8_Windows_8_Editing_Overview_Pages_1;
+            this.btn_overview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_overview.Location = new System.Drawing.Point(213, 19);
+            this.btn_overview.Name = "btn_overview";
+            this.btn_overview.Size = new System.Drawing.Size(25, 23);
+            this.btn_overview.TabIndex = 21;
+            this.btn_overview.UseVisualStyleBackColor = true;
+            this.btn_overview.Click += new System.EventHandler(this.btn_overview_Click);
+            // 
             // UC_Violation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_Violation";
-            this.Size = new System.Drawing.Size(735, 590);
+            this.Size = new System.Drawing.Size(756, 590);
             this.Load += new System.EventHandler(this.UC_Violation_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -296,5 +309,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_offense;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_overview;
     }
 }
