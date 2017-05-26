@@ -129,6 +129,12 @@
     <Compile Include="UC_Lists\UC_Birthday.Designer.cs">
       <DependentUpon>UC_Birthday.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Lists\UC_DependentList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Lists\UC_DependentList.Designer.cs">
+      <DependentUpon>UC_DependentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Lists\UC_EmpStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Lists\UC_Birthday.resx">
       <DependentUpon>UC_Birthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Lists\UC_DependentList.resx">
+      <DependentUpon>UC_DependentList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Lists\UC_EmpStatus.resx">
       <DependentUpon>UC_EmpStatus.cs</DependentUpon>

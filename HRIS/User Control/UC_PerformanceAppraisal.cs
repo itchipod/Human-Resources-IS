@@ -26,6 +26,11 @@ namespace HRIS.User_Control
             loadcombobox();
         }
 
+        private void loaddb()
+        {
+
+        }
+
         private void loadcombobox()
         {
             string sqlstring = "SELECT ID, (Emp_ID + ' - ' + Last_Name + ', ' + First_Name + ' ' + LEFT(Mid_Name, 1) + '.') AS name from Emp_Overview where Emp_Status <> 'Inactive'";

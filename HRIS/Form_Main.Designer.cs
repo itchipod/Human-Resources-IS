@@ -43,7 +43,6 @@
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employmentStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.traineesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inactiveEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medicalReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.birthdaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -166,7 +165,6 @@
             this.employeesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allEmployeesToolStripMenuItem,
             this.employmentStatusToolStripMenuItem,
-            this.traineesToolStripMenuItem,
             this.inactiveEmployeesToolStripMenuItem});
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             this.employeesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
@@ -185,12 +183,6 @@
             this.employmentStatusToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.employmentStatusToolStripMenuItem.Text = "Employment Status";
             this.employmentStatusToolStripMenuItem.Click += new System.EventHandler(this.employmentStatusToolStripMenuItem_Click);
-            // 
-            // traineesToolStripMenuItem
-            // 
-            this.traineesToolStripMenuItem.Name = "traineesToolStripMenuItem";
-            this.traineesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.traineesToolStripMenuItem.Text = "Trainees";
             // 
             // inactiveEmployeesToolStripMenuItem
             // 
@@ -218,6 +210,7 @@
             this.dependentsToolStripMenuItem.Name = "dependentsToolStripMenuItem";
             this.dependentsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.dependentsToolStripMenuItem.Text = "Dependents";
+            this.dependentsToolStripMenuItem.Click += new System.EventHandler(this.dependentsToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -284,7 +277,6 @@
         private System.Windows.Forms.ToolStripMenuItem auditTrailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem performanceAppraisalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printPerformanceAppraisalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem traineesToolStripMenuItem;
     }
 }
 
