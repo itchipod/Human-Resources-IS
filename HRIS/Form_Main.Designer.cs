@@ -115,14 +115,13 @@
             this.performanceAppraisalToolStripMenuItem.Name = "performanceAppraisalToolStripMenuItem";
             this.performanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
             this.performanceAppraisalToolStripMenuItem.Text = "Performance Appraisal";
-            this.performanceAppraisalToolStripMenuItem.Visible = false;
             this.performanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.performanceAppraisalToolStripMenuItem_Click);
             // 
             // printPerformanceAppraisalToolStripMenuItem
             // 
             this.printPerformanceAppraisalToolStripMenuItem.Name = "printPerformanceAppraisalToolStripMenuItem";
-            this.printPerformanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.printPerformanceAppraisalToolStripMenuItem.Text = "Print Performance Appraisal";
+            this.printPerformanceAppraisalToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.printPerformanceAppraisalToolStripMenuItem.Text = "Performance Appraisal";
             this.printPerformanceAppraisalToolStripMenuItem.Click += new System.EventHandler(this.printPerformanceAppraisalToolStripMenuItem_Click);
             // 
             // memorandumToolStripMenuItem
@@ -138,13 +137,13 @@
             // memoToolStripMenuItem
             // 
             this.memoToolStripMenuItem.Name = "memoToolStripMenuItem";
-            this.memoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.memoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.memoToolStripMenuItem.Text = "Memo";
             // 
             // violationsToolStripMenuItem
             // 
             this.violationsToolStripMenuItem.Name = "violationsToolStripMenuItem";
-            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.violationsToolStripMenuItem.Text = "Violations";
             this.violationsToolStripMenuItem.Click += new System.EventHandler(this.violationsToolStripMenuItem_Click);
             // 

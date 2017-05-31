@@ -53,10 +53,10 @@
             this.tb_spousename = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_adddep = new System.Windows.Forms.Button();
             this.dg_dependent = new System.Windows.Forms.DataGridView();
-            this.btn_refresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_dependent)).BeginInit();
@@ -309,6 +309,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "OTHER DEPENDENTS";
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(431, 177);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(95, 23);
+            this.btn_refresh.TabIndex = 4;
+            this.btn_refresh.Text = "REFRESH";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
             // btn_remove
             // 
             this.btn_remove.Location = new System.Drawing.Point(152, 178);
@@ -342,16 +352,6 @@
             this.dg_dependent.Size = new System.Drawing.Size(519, 147);
             this.dg_dependent.TabIndex = 0;
             this.dg_dependent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_dependent_CellClick);
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.Location = new System.Drawing.Point(431, 173);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(95, 23);
-            this.btn_refresh.TabIndex = 4;
-            this.btn_refresh.Text = "REFRESH";
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // UC_Family
             // 

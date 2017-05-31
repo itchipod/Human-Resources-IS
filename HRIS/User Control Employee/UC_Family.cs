@@ -32,6 +32,7 @@ namespace HRIS.User_Control_Employee
             else
                Application.OpenForms[f.Name].Activate();
             
+            
 
         }
 
@@ -233,6 +234,7 @@ namespace HRIS.User_Control_Employee
                     myconn.Close();
                     audittrail("Deleted Dependent from Employee No." + empsystemid);
                     MessageBox.Show("Record deleted successfully");
+                    getdependents();
                 }
                 catch (Exception ex)
                 {
