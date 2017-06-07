@@ -25,7 +25,7 @@ namespace HRIS.User_Control_Employee
         }
         
 
-        private void UC_Overview_Load(object sender, EventArgs e)
+        public void UC_Overview_Load(object sender, EventArgs e)
         {
             gettempid();
             loaddepartment();
@@ -34,7 +34,7 @@ namespace HRIS.User_Control_Employee
             
         }
 
-        private void gettempid()
+        public void gettempid()
         {
             try
             {
@@ -56,7 +56,7 @@ namespace HRIS.User_Control_Employee
             }
         }
 
-        private void setTextboxes()
+        public void setTextboxes()
         {
             try
             {
@@ -305,6 +305,11 @@ namespace HRIS.User_Control_Employee
 
             // Open in Word:
             Process.Start("WINWORD.EXE", fileName);
+        }
+
+        public void testtry()
+        {
+            MessageBox.Show("GOOD");
         }
     }
 }

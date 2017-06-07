@@ -100,6 +100,7 @@
             this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
             this.positionToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.positionToolStripMenuItem.Text = "Position";
+            this.positionToolStripMenuItem.Visible = false;
             // 
             // employeeToolStripMenuItem
             // 
@@ -137,13 +138,14 @@
             // memoToolStripMenuItem
             // 
             this.memoToolStripMenuItem.Name = "memoToolStripMenuItem";
-            this.memoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.memoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.memoToolStripMenuItem.Text = "Memo";
+            this.memoToolStripMenuItem.Click += new System.EventHandler(this.memoToolStripMenuItem_Click);
             // 
             // violationsToolStripMenuItem
             // 
             this.violationsToolStripMenuItem.Name = "violationsToolStripMenuItem";
-            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.violationsToolStripMenuItem.Text = "Violations";
             this.violationsToolStripMenuItem.Click += new System.EventHandler(this.violationsToolStripMenuItem_Click);
             // 

@@ -166,6 +166,7 @@
             this.dg_emp.ShowEditingIcon = false;
             this.dg_emp.Size = new System.Drawing.Size(225, 558);
             this.dg_emp.TabIndex = 7;
+            this.dg_emp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_emp_CellClick);
             this.dg_emp.SelectionChanged += new System.EventHandler(this.dg_emp_SelectionChanged);
             // 
             // btn_Refresh

@@ -27,9 +27,10 @@ namespace HRIS.User_Control_Employee
         {
             gettempid();
             getviolation();
+            getperformance();
         }
 
-        private void gettempid()
+        public void gettempid()
         {
             try
             {
@@ -51,7 +52,7 @@ namespace HRIS.User_Control_Employee
             }
         }
 
-        private void getviolation()
+        public void getviolation()
         {
             try
             {
@@ -68,9 +69,38 @@ namespace HRIS.User_Control_Employee
                         dg_violation.Columns[2].HeaderText = "Offense";
                         dg_violation.Columns[3].HeaderText = "Date";
                         dg_violation.Columns[4].HeaderText = "Place";
-                        dg_violation.Columns[5].HeaderText = "Time";
-                        dg_violation.Columns[6].HeaderText = "Penalty";
-                        dg_violation.Columns[7].HeaderText = "Date Effective";
+                        dg_violation.Columns[5].HeaderText = "Time Commited";
+                        dg_violation.Columns[6].HeaderText = "TNumber of Times";
+                        dg_violation.Columns[7].HeaderText = "Penalty";
+                        dg_violation.Columns[8].HeaderText = "Date Effective";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void getperformance()
+        {
+            try
+            {
+                string sqlstring = "SELECT * from Emp_Evaluation where Emp_ID=" + empsystemid;
+                using (OleDbConnection conn = new OleDbConnection(connstring))
+                {
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dg_performance.DataSource = ds.Tables[0];
+                        dg_performance.Columns[0].Visible = false;
+                        dg_performance.Columns[4].Visible = false;
+                        dg_performance.Columns[1].HeaderText = "Evaluation Period";
+                        dg_performance.Columns[2].HeaderText = "Grade";
+                        dg_performance.Columns[3].HeaderText = "Evaluated by";
+                        
                     }
                 }
             }

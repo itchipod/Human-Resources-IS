@@ -17,6 +17,15 @@ namespace HRIS.User_Control
         public string connstring = System.Configuration.ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         public string id;
         public string empid;
+
+        User_Control_Employee.UC_Overview uo = new User_Control_Employee.UC_Overview();
+        User_Control_Employee.UC_Education ue = new User_Control_Employee.UC_Education();
+        User_Control_Employee.UC_Family uf = new User_Control_Employee.UC_Family();
+        User_Control_Employee.UC_Employee uh = new User_Control_Employee.UC_Employee();
+        User_Control_Employee.UC_Training ut = new User_Control_Employee.UC_Training();
+        User_Control_Employee.UC_Medical um = new User_Control_Employee.UC_Medical();
+        User_Control_Employee.UC_Performance up = new User_Control_Employee.UC_Performance();
+
         public UC_Employee()
         {
             InitializeComponent();
@@ -26,13 +35,14 @@ namespace HRIS.User_Control
         private void overviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changecolor();
-            User_Control_Employee.UC_Overview uo = new User_Control_Employee.UC_Overview();
+            
             panel_employee.Controls.Clear();
             //applytocontents();
             panel_employee.Controls.Add(uo);
             overviewToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             toolstripuncheck();
             overviewToolStripMenuItem.Checked = true;
+            //uo.testtry();
         }
 
         private void UC_Employee_Load(object sender, EventArgs e)
@@ -64,9 +74,9 @@ namespace HRIS.User_Control
         private void educationAttainmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changecolor();
-            User_Control_Employee.UC_Education uo = new User_Control_Employee.UC_Education();
+            
             panel_employee.Controls.Clear();
-            panel_employee.Controls.Add(uo);
+            panel_employee.Controls.Add(ue);
             educationAttainmentToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             toolstripuncheck();
             educationAttainmentToolStripMenuItem.Checked = true;
@@ -75,9 +85,9 @@ namespace HRIS.User_Control
         private void familyInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changecolor();
-            User_Control_Employee.UC_Family uo = new User_Control_Employee.UC_Family();
+            
             panel_employee.Controls.Clear();
-            panel_employee.Controls.Add(uo);
+            panel_employee.Controls.Add(uf);
             familyInformationToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             toolstripuncheck();
             familyInformationToolStripMenuItem.Checked = true;
@@ -86,9 +96,9 @@ namespace HRIS.User_Control
         private void employmentHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changecolor();
-            User_Control_Employee.UC_Employee uo = new User_Control_Employee.UC_Employee();
+            
             panel_employee.Controls.Clear();
-            panel_employee.Controls.Add(uo);
+            panel_employee.Controls.Add(uh);
             employmentHistoryToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             toolstripuncheck();
             employmentHistoryToolStripMenuItem.Checked = true;
@@ -97,9 +107,9 @@ namespace HRIS.User_Control
         private void trainingAndDevelopmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changecolor();
-            User_Control_Employee.UC_Training uo = new User_Control_Employee.UC_Training();
+            
             panel_employee.Controls.Clear();
-            panel_employee.Controls.Add(uo);
+            panel_employee.Controls.Add(ut);
             trainingAndDevelopmentToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             toolstripuncheck();
             trainingAndDevelopmentToolStripMenuItem.Checked = true;
@@ -108,9 +118,9 @@ namespace HRIS.User_Control
         private void medicalHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changecolor();
-            User_Control_Employee.UC_Medical uo = new User_Control_Employee.UC_Medical();
+            
             panel_employee.Controls.Clear();
-            panel_employee.Controls.Add(uo);
+            panel_employee.Controls.Add(um);
             medicalHistoryToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             toolstripuncheck();
             medicalHistoryToolStripMenuItem.Checked = true;
@@ -119,9 +129,9 @@ namespace HRIS.User_Control
         private void performanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changecolor();
-            User_Control_Employee.UC_Performance uo = new User_Control_Employee.UC_Performance();
+            
             panel_employee.Controls.Clear();
-            panel_employee.Controls.Add(uo);
+            panel_employee.Controls.Add(up);
             performanceToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             toolstripuncheck();
             performanceToolStripMenuItem.Checked = true;
@@ -195,26 +205,57 @@ namespace HRIS.User_Control
             }
 
             if (overviewToolStripMenuItem.Checked == true)
-                overviewToolStripMenuItem_Click(this, new EventArgs());
+            {
+
+                uo.gettempid();
+                uo.setTextboxes();
+            }
+            //overviewToolStripMenuItem_Click(this, new EventArgs());
             else if (educationAttainmentToolStripMenuItem.Checked == true)
+            {
                 educationAttainmentToolStripMenuItem_Click(this, new EventArgs());
+            }
             else if (familyInformationToolStripMenuItem.Checked == true)
-                familyInformationToolStripMenuItem_Click(this, new EventArgs());
+            {
+                uf.gettempid();
+                uf.setspouse();
+                uf.getdependents();
+                //familyInformationToolStripMenuItem_Click(this, new EventArgs());
+            }
+
             else if (performanceToolStripMenuItem.Checked == true)
-                performanceToolStripMenuItem_Click(this, new EventArgs());
+            {
+                up.gettempid();
+                up.getviolation();
+                up.getperformance();
+                //performanceToolStripMenuItem_Click(this, new EventArgs());
+            }
             else if (employmentHistoryToolStripMenuItem.Checked == true)
-                employmentHistoryToolStripMenuItem_Click(this, new EventArgs());
+            {
+                uh.gettempid();
+                uh.loademployer();
+                //employmentHistoryToolStripMenuItem_Click(this, new EventArgs());
+            }
             else if (medicalHistoryToolStripMenuItem.Checked == true)
-                medicalHistoryToolStripMenuItem_Click(this, new EventArgs());
+            {
+                um.gettempid();
+                um.loaddbmedical();
+                um.loadailment();
+                //medicalHistoryToolStripMenuItem_Click(this, new EventArgs());
+            }
             else if (trainingAndDevelopmentToolStripMenuItem.Checked == true)
-                trainingAndDevelopmentToolStripMenuItem_Click(this, new EventArgs());
+            {
+                ut.gettempid();
+                ut.loadtraining();
+                //trainingAndDevelopmentToolStripMenuItem_Click(this, new EventArgs());
+            }
         }
 
         private void dg_emp_SelectionChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show("OOO");
-            if(dg_emp.SelectedRows.Count > 0)
-            applytocontents();
+            
+            if (dg_emp.SelectedRows.Count > 0)
+                applytocontents();
         }
 
         private void tb_searchemp_Click(object sender, EventArgs e)
@@ -258,6 +299,12 @@ namespace HRIS.User_Control
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             loademployees();
+        }
+
+        private void dg_emp_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dg_emp.SelectedRows.Count > 0)
+                applytocontents();
         }
     }
 }

@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_print = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
+            this.btn_overview = new System.Windows.Forms.Button();
             this.dg_violation = new System.Windows.Forms.DataGridView();
             this.tb_effectivedate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,17 +51,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cb_emp = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_overview = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_violation)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn_overview);
+            this.groupBox1.Controls.Add(this.btn_print);
             this.groupBox1.Controls.Add(this.btn_remove);
             this.groupBox1.Controls.Add(this.btn_update);
             this.groupBox1.Controls.Add(this.btn_add);
+            this.groupBox1.Controls.Add(this.btn_overview);
             this.groupBox1.Controls.Add(this.dg_violation);
             this.groupBox1.Controls.Add(this.tb_effectivedate);
             this.groupBox1.Controls.Add(this.label8);
@@ -84,35 +86,53 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "VIOLATION REPORT";
             // 
+            // btn_print
+            // 
+            this.btn_print.Location = new System.Drawing.Point(611, 118);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(118, 23);
+            this.btn_print.TabIndex = 25;
+            this.btn_print.Text = "PRINT DISPLAYED";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
             // btn_remove
             // 
-            this.btn_remove.Location = new System.Drawing.Point(175, 546);
+            this.btn_remove.Location = new System.Drawing.Point(174, 118);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(75, 23);
-            this.btn_remove.TabIndex = 20;
+            this.btn_remove.TabIndex = 24;
             this.btn_remove.Text = "REMOVE";
             this.btn_remove.UseVisualStyleBackColor = true;
-            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(93, 546);
+            this.btn_update.Location = new System.Drawing.Point(92, 118);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(75, 23);
-            this.btn_update.TabIndex = 19;
+            this.btn_update.TabIndex = 23;
             this.btn_update.Text = "UPDATE";
             this.btn_update.UseVisualStyleBackColor = true;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(10, 546);
+            this.btn_add.Location = new System.Drawing.Point(9, 118);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(75, 23);
-            this.btn_add.TabIndex = 18;
+            this.btn_add.TabIndex = 22;
             this.btn_add.Text = "ADD";
             this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // btn_overview
+            // 
+            this.btn_overview.BackgroundImage = global::HRIS.Properties.Resources.Icons8_Windows_8_Editing_Overview_Pages_1;
+            this.btn_overview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_overview.Location = new System.Drawing.Point(213, 19);
+            this.btn_overview.Name = "btn_overview";
+            this.btn_overview.Size = new System.Drawing.Size(25, 23);
+            this.btn_overview.TabIndex = 21;
+            this.btn_overview.UseVisualStyleBackColor = true;
+            this.btn_overview.Click += new System.EventHandler(this.btn_overview_Click);
             // 
             // dg_violation
             // 
@@ -120,7 +140,7 @@
             this.dg_violation.AllowUserToDeleteRows = false;
             this.dg_violation.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dg_violation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_violation.Location = new System.Drawing.Point(9, 122);
+            this.dg_violation.Location = new System.Drawing.Point(9, 147);
             this.dg_violation.Name = "dg_violation";
             this.dg_violation.ReadOnly = true;
             this.dg_violation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -259,17 +279,7 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Employee:";
-            // 
-            // btn_overview
-            // 
-            this.btn_overview.BackgroundImage = global::HRIS.Properties.Resources.Icons8_Windows_8_Editing_Overview_Pages_1;
-            this.btn_overview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_overview.Location = new System.Drawing.Point(213, 19);
-            this.btn_overview.Name = "btn_overview";
-            this.btn_overview.Size = new System.Drawing.Size(25, 23);
-            this.btn_overview.TabIndex = 21;
-            this.btn_overview.UseVisualStyleBackColor = true;
-            this.btn_overview.Click += new System.EventHandler(this.btn_overview_Click);
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // UC_Violation
             // 
@@ -295,9 +305,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cb_emp;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_remove;
-        private System.Windows.Forms.Button btn_update;
-        private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.DataGridView dg_violation;
         private System.Windows.Forms.TextBox tb_effectivedate;
         private System.Windows.Forms.Label label8;
@@ -310,5 +317,9 @@
         private System.Windows.Forms.TextBox tb_offense;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_overview;
+        private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.Button btn_remove;
+        private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.Button btn_add;
     }
 }

@@ -45,7 +45,7 @@ namespace HRIS.User_Control_Employee
             
         }
 
-        private void gettempid()
+        public void gettempid()
         {
             try
             {
@@ -67,7 +67,7 @@ namespace HRIS.User_Control_Employee
             }
         }
 
-        private void setspouse()
+        public void setspouse()
         {
             try
             {
@@ -183,7 +183,7 @@ namespace HRIS.User_Control_Employee
 
         }
 
-        private void getdependents()
+        public void getdependents()
         {
             try
             {

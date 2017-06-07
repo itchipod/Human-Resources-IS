@@ -29,7 +29,7 @@ namespace HRIS.User_Control_Employee
             loadtraining();
         }
 
-        private void gettempid()
+        public void gettempid()
         {
             try
             {
@@ -51,7 +51,7 @@ namespace HRIS.User_Control_Employee
             }
         }
 
-        private void loadtraining()
+        public void loadtraining()
         {
             try
             {

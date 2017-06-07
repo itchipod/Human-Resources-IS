@@ -30,7 +30,7 @@ namespace HRIS.User_Control_Employee
             loadailment();
         }
 
-        private void gettempid()
+        public void gettempid()
         {
             try
             {
@@ -52,7 +52,7 @@ namespace HRIS.User_Control_Employee
             }
         }
 
-        private void loaddbmedical()
+        public void loaddbmedical()
         {
             try
             {
@@ -81,7 +81,7 @@ namespace HRIS.User_Control_Employee
             }
         }
 
-        private void loadailment()
+        public void loadailment()
         {
             list_ailment.Items.Clear();
             try

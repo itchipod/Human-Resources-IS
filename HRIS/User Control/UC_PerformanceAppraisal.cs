@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using System.Data.OleDb;
 using Microsoft.Office.Interop.Word;
 
@@ -28,14 +29,16 @@ namespace HRIS.User_Control
             loadcombobox();
             loaddepartment();
             loadperiod();
+           
             cb_period.Text = "PERIOD";
             cb_department.Text = "DEPARTMENT";
+           
         }
 
         private void loaddb()
         {
             try {
-                string sqlstring = "SELECT Emp_Evaluation.ID, Emp_Evaluation.Emp_ID, Emp_Overview.Emp_ID, (Emp_Overview.First_Name + ' ' + Emp_Overview.Last_Name + ' ' + Emp_Overview.Suffix_Name) AS Name, Eval_Period, Eval_Grade, Eval_By, Emp_Overview.Emp_Dept FROM Emp_Evaluation LEFT JOIN Emp_Overview ON Emp_Evaluation.Emp_ID=Emp_Overview.ID";
+                string sqlstring = "SELECT Emp_Evaluation.ID, Emp_Evaluation.Emp_ID, Emp_Overview.Emp_ID, (Emp_Overview.First_Name + ' ' + Emp_Overview.Last_Name + ' ' + Emp_Overview.Mid_Name) AS Name, Eval_Period, Eval_Grade, Eval_By, Emp_Overview.Emp_Dept FROM Emp_Evaluation LEFT JOIN Emp_Overview ON Emp_Evaluation.Emp_ID=Emp_Overview.ID";
                 using (OleDbConnection conn = new OleDbConnection(connstring))
                 {
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
@@ -51,6 +54,7 @@ namespace HRIS.User_Control
                         dataGridView1.Columns[5].HeaderText = "Grade(%)";
                         dataGridView1.Columns[6].HeaderText = "Evaluated by";
                         dataGridView1.Columns[7].HeaderText = "Department";
+                        
 
                     }
                 }
@@ -195,11 +199,12 @@ namespace HRIS.User_Control
                     myconn.Open();
                     OleDbCommand cmd = new OleDbCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = @"UPDATE Emp_Evaluation SET Emp_ID=@id, Eval_Period=@per, Eval_Grade=@gra, Eval_By=@by ";
-                    cmd.Parameters.AddWithValue("@id", empid);
+                    cmd.CommandText = @"UPDATE Emp_Evaluation SET Emp_ID=@empid, Eval_Period=@per, Eval_Grade=@gra, Eval_By=@by where ID=@id";
+                    cmd.Parameters.AddWithValue("@empid", empid);
                     cmd.Parameters.AddWithValue("@per", tb_period.Text);
                     cmd.Parameters.AddWithValue("@gra", tb_grade.Text);
                     cmd.Parameters.AddWithValue("@by", tb_evaluated.Text);
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.Connection = myconn;
                     cmd.ExecuteNonQuery();
                     myconn.Close();
@@ -219,7 +224,7 @@ namespace HRIS.User_Control
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + string.Empty;
+            id = dataGridView1.SelectedRows[0].Cells[0].Value + string.Empty;
             tb_period.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString() + string.Empty;
             tb_grade.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString() + string.Empty;
             tb_evaluated.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString() + string.Empty;
@@ -258,14 +263,106 @@ namespace HRIS.User_Control
         {
             if(checkBox1.Checked == true)
             {
-                cb_department.Enabled = true;
+                //cb_department.Enabled = true;
                 cb_period.Enabled = true;
             }
             else
             {
-                cb_department.Enabled = false;
+                //cb_department.Enabled = false;
                 cb_period.Enabled = false;
+                loaddb();
             }
+        }
+
+        private void cb_period_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbChange();
+        }
+
+        private void cbChange()
+        {
+            if (checkBox1.Checked == true && checkBox2.Checked == true)
+                (dataGridView1.DataSource as System.Data.DataTable).DefaultView.RowFilter = string.Format("Eval_Period LIKE '%{0}%' AND Emp_Dept LIKE '%{1}%'", cb_period.Text, cb_department.Text);
+            else if (checkBox1.Checked == true)
+                (dataGridView1.DataSource as System.Data.DataTable).DefaultView.RowFilter = string.Format("Eval_Period LIKE '%{0}%'", cb_period.Text);
+            else if (checkBox2.Checked == true)
+                (dataGridView1.DataSource as System.Data.DataTable).DefaultView.RowFilter = string.Format("Emp_Dept LIKE '%{0}%'", cb_department.Text);
+
+            averagegrade();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                cb_department.Enabled = true;
+                //cb_period.Enabled = true;
+            }
+            else
+            {
+                cb_department.Enabled = false;
+                loaddb();
+                //cb_period.Enabled = false;
+            }
+        }
+
+        private void cb_department_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbChange();
+
+        }
+
+        private void btn_Print_Click(object sender, EventArgs e)
+        {
+            copyAlltoClipboard();
+            Microsoft.Office.Interop.Excel.Application xlexcel;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Microsoft.Office.Interop.Excel.Application();
+            xlexcel.Visible = true;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        
+
+        private void copyAlltoClipboard()
+        {
+            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dataGridView1.MultiSelect = true;
+            dataGridView1.SelectAll();
+            DataObject dataObj = dataGridView1.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cb_period_DisplayMemberChanged(object sender, EventArgs e)
+        {
+            //int grades1 = 0;
+            averagegrade();
+        }
+
+        private void averagegrade()
+        {
+            int rowcount = dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Visible);
+            
+            float[] grades = new float[rowcount];
+            for (int i = 0; i < rowcount; i++)
+            {
+                grades[i] = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value.ToString());
+            }
+
+            float average = grades.Sum() / rowcount;
+            lbl_average.Text = average.ToString() + "%";
         }
     }
 

@@ -183,5 +183,12 @@ namespace HRIS
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
         }
+
+        private void memoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_Memo.UC_InterMemo uc = new UC_Memo.UC_InterMemo();
+            mainpanel.Controls.Clear();
+            mainpanel.Controls.Add(uc);
+        }
     }
 }
