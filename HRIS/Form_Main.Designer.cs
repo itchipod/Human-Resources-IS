@@ -49,6 +49,7 @@
             this.dependentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditTrailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainpanel = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,8 @@
             this.memorandumToolStripMenuItem,
             this.listOfReportsToolStripMenuItem,
             this.usersToolStripMenuItem,
-            this.auditTrailToolStripMenuItem});
+            this.auditTrailToolStripMenuItem,
+            this.backupRestoreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1212, 24);
@@ -91,15 +93,15 @@
             // departmentToolStripMenuItem
             // 
             this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
-            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.departmentToolStripMenuItem.Text = "Department";
             this.departmentToolStripMenuItem.Click += new System.EventHandler(this.departmentToolStripMenuItem_Click);
             // 
             // positionToolStripMenuItem
             // 
             this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
-            this.positionToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.positionToolStripMenuItem.Text = "Position";
+            this.positionToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.positionToolStripMenuItem.Text = "Backup/Restore";
             this.positionToolStripMenuItem.Visible = false;
             // 
             // employeeToolStripMenuItem
@@ -138,14 +140,14 @@
             // memoToolStripMenuItem
             // 
             this.memoToolStripMenuItem.Name = "memoToolStripMenuItem";
-            this.memoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.memoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.memoToolStripMenuItem.Text = "Memo";
             this.memoToolStripMenuItem.Click += new System.EventHandler(this.memoToolStripMenuItem_Click);
             // 
             // violationsToolStripMenuItem
             // 
             this.violationsToolStripMenuItem.Name = "violationsToolStripMenuItem";
-            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.violationsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.violationsToolStripMenuItem.Text = "Violations";
             this.violationsToolStripMenuItem.Click += new System.EventHandler(this.violationsToolStripMenuItem_Click);
             // 
@@ -227,6 +229,13 @@
             this.auditTrailToolStripMenuItem.Text = "Audit Trail";
             this.auditTrailToolStripMenuItem.Click += new System.EventHandler(this.auditTrailToolStripMenuItem_Click);
             // 
+            // backupRestoreToolStripMenuItem
+            // 
+            this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
+            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.backupRestoreToolStripMenuItem.Text = "Backup/Restore";
+            this.backupRestoreToolStripMenuItem.Click += new System.EventHandler(this.backupRestoreToolStripMenuItem_Click);
+            // 
             // mainpanel
             // 
             this.mainpanel.Location = new System.Drawing.Point(13, 28);
@@ -278,6 +287,7 @@
         private System.Windows.Forms.ToolStripMenuItem auditTrailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem performanceAppraisalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printPerformanceAppraisalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backupRestoreToolStripMenuItem;
     }
 }
 

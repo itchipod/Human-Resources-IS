@@ -65,6 +65,7 @@ namespace HRIS
             performanceAppraisalToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
             usersToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
             auditTrailToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
+            backupRestoreToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
         }
 
         private void performanceAppraisalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,7 +91,6 @@ namespace HRIS
             UC_Lists.UC_Inactive uc = new UC_Lists.UC_Inactive();
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
-
         }
 
         private void employmentStatusToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,6 +189,15 @@ namespace HRIS
             UC_Memo.UC_InterMemo uc = new UC_Memo.UC_InterMemo();
             mainpanel.Controls.Clear();
             mainpanel.Controls.Add(uc);
+        }
+
+        private void backupRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            User_Control_Backup.UC_Backup u = new User_Control_Backup.UC_Backup();
+            mainpanel.Controls.Clear();
+            mainpanel.Controls.Add(u);
+            removecolors();
+            backupRestoreToolStripMenuItem.BackColor = System.Drawing.Color.Cyan;
         }
     }
 }

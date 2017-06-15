@@ -53,7 +53,7 @@
             this.groupBox1.Controls.Add(this.dg_contracts);
             this.groupBox1.Location = new System.Drawing.Point(504, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(370, 322);
+            this.groupBox1.Size = new System.Drawing.Size(370, 275);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contracts Expiring this Month";
@@ -67,15 +67,15 @@
             this.dg_contracts.Name = "dg_contracts";
             this.dg_contracts.ReadOnly = true;
             this.dg_contracts.RowHeadersVisible = false;
-            this.dg_contracts.Size = new System.Drawing.Size(355, 279);
+            this.dg_contracts.Size = new System.Drawing.Size(355, 225);
             this.dg_contracts.TabIndex = 5;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dg_bday);
-            this.groupBox2.Location = new System.Drawing.Point(504, 331);
+            this.groupBox2.Location = new System.Drawing.Point(504, 284);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(370, 315);
+            this.groupBox2.Size = new System.Drawing.Size(370, 362);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Birthdays for the Month";
@@ -91,7 +91,7 @@
             this.dg_bday.ReadOnly = true;
             this.dg_bday.RowHeadersVisible = false;
             this.dg_bday.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_bday.Size = new System.Drawing.Size(355, 275);
+            this.dg_bday.Size = new System.Drawing.Size(355, 334);
             this.dg_bday.TabIndex = 6;
             // 
             // groupBox3

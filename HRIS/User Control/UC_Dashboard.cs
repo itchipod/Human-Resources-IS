@@ -36,7 +36,7 @@ namespace HRIS.User_Control
         {
             try
             {
-                string sqlstring = "SELECT Emp_ID, (First_Name + ' ' + Last_Name) AS NAME, Birthdate from Emp_Overview where MONTH(Birthdate) = " + datetoday;
+                string sqlstring = "SELECT Emp_ID, (First_Name + ' ' + Last_Name) AS NAME, Birthdate from Emp_Overview where MONTH(Birthdate) = " + datetoday + " ORDER BY DAY(Birthdate)";
                 using (OleDbConnection conn = new OleDbConnection(connstring))
                 {
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))

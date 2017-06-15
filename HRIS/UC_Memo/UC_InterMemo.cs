@@ -25,8 +25,9 @@ namespace HRIS.UC_Memo
 
         private void UC_InterMemo_Load(object sender, EventArgs e)
         {
-            loaddb();
+            
             loademployees();
+            loaddb();
         }
 
         private void loademployees()
@@ -82,7 +83,7 @@ namespace HRIS.UC_Memo
         {
             try
             {
-                string sqlstring = "SELECT Emp_Memo.ID, Memo_Subject, Memo_Date, Memo_DateReceived, Emp_Memo.Emp_ID, (Emp_Overview.First_Name + ' ' + Emp_Overview.Last_Name + ' ' + Emp_Overview.Suffix_Name) AS Name, Emp_Overview.Emp_Dept from Emp_Memo LEFT JOIN Emp_Overview ON Emp_Memo.Emp_ID=Emp_Overview.ID";
+                string sqlstring = "SELECT Emp_Memo.ID, Memo_Subject, Memo_Date, Memo_DateReceived, Emp_Memo.Emp_ID, (Emp_Overview.First_Name + ' ' + Emp_Overview.Last_Name + ' ' + Emp_Overview.Suffix_Name) AS Name from Emp_Memo LEFT JOIN Emp_Overview ON Emp_Memo.Emp_ID=Emp_Overview.ID where Emp_Memo.Emp_ID = "+empid;
                 using (OleDbConnection conn = new OleDbConnection(connstring))
                 {
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(sqlstring, conn))
@@ -95,9 +96,9 @@ namespace HRIS.UC_Memo
                         dg_memo.Columns[1].HeaderText = "Subject";
                         dg_memo.Columns[2].HeaderText = "Date";
                         dg_memo.Columns[3].HeaderText = "Date Received";
-                        dg_memo.Columns[4].HeaderText = "Employee ID";
+                        dg_memo.Columns[4].Visible = false;
                         dg_memo.Columns[5].HeaderText = "Employee Name";
-                        dg_memo.Columns[6].HeaderText = "Department";
+                        
                        
                     }
                 }
@@ -223,6 +224,38 @@ namespace HRIS.UC_Memo
         {
             Audit_Trail.Add_AuditTrail a = new Audit_Trail.Add_AuditTrail();
             a.add_log(_activity);
+        }
+
+        private void cb_emp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            empid = cb_emp.SelectedValue.ToString();
+            loaddb();
+        }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            copyAlltoClipboard();
+            Microsoft.Office.Interop.Excel.Application xlexcel;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Microsoft.Office.Interop.Excel.Application();
+            xlexcel.Visible = true;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        private void copyAlltoClipboard()
+        {
+            dg_memo.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dg_memo.MultiSelect = true;
+            dg_memo.SelectAll();
+            DataObject dataObj = dg_memo.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
         }
     }
 }

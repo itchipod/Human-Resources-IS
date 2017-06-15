@@ -70,7 +70,7 @@ namespace HRIS.User_Control_Employee
                         dg_violation.Columns[3].HeaderText = "Date";
                         dg_violation.Columns[4].HeaderText = "Place";
                         dg_violation.Columns[5].HeaderText = "Time Commited";
-                        dg_violation.Columns[6].HeaderText = "TNumber of Times";
+                        dg_violation.Columns[6].HeaderText = "Number of Times";
                         dg_violation.Columns[7].HeaderText = "Penalty";
                         dg_violation.Columns[8].HeaderText = "Date Effective";
                     }

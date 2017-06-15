@@ -32,6 +32,7 @@
             this.date_sort = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_print = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -78,13 +79,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(666, 457);
             this.dataGridView1.TabIndex = 0;
             // 
+            // btn_print
+            // 
+            this.btn_print.Location = new System.Drawing.Point(610, 523);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(75, 23);
+            this.btn_print.TabIndex = 26;
+            this.btn_print.Text = "PRINT";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
             // UC_Audit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_Audit";
-            this.Size = new System.Drawing.Size(695, 520);
+            this.Size = new System.Drawing.Size(695, 554);
             this.Load += new System.EventHandler(this.UC_Audit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -99,5 +111,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker date_sort;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_print;
     }
 }
